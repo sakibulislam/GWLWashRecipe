@@ -1,0 +1,381 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="GWL Wash Recipe Dashboard" id="ph1"
+                        icon="/icons/washing_laundry.png">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
+            <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                              text="Create"
+                              disabled="#{!bindings.CreateInsert.enabled}"
+                              id="cb1" action="*gotoEditPG"
+                              icon="/icons/Icon_6-512.png"
+                              inlineStyle="height:30.0px;"/>
+            <af:spacer width="20" height="10" id="s1"/>
+            <af:commandButton actionListener="#{bindings.Commit.execute}"
+                              text="Save" id="cb3" partialSubmit="true"
+                              icon="/icons/save new.png"
+                              inlineStyle="height:30.0px;"/>
+          </af:panelGroupLayout>
+          <af:panelTabbed id="pt1" styleClass="AFStretchWidth"
+                          inlineStyle="height:350px;">
+            <af:showDetailItem text="Recipe Master" id="sdi1"
+                               icon="/icons/master.png">
+              <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t2"/>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.MjGwlRecipeMasterVO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.MjGwlRecipeMasterVO1.rangeSize}"
+                          emptyText="#{bindings.MjGwlRecipeMasterVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.MjGwlRecipeMasterVO1.rangeSize}"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.MjGwlRecipeMasterVO1Query.queryDescriptor}"
+                          queryListener="#{bindings.MjGwlRecipeMasterVO1Query.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.MjGwlRecipeMasterVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.MjGwlRecipeMasterVO1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t1"
+                          partialTriggers="::cb2 ::cb3 :::cb1 cb2">
+                  <af:column id="c34" headerText="Edit" align="center"
+                             width="51">
+                    <af:commandButton text="Edit" id="cb4" action="*gotoEditPG"
+                                      icon="/icons/edit new.png"
+                                      inlineStyle="height:30.0px;"/>
+                  </af:column>
+                  <af:column id="c35" headerText="Delete" align="center"
+                             width="70">
+                    <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                      text="Delete"
+                                      disabled="#{!bindings.Delete.enabled}"
+                                      id="cb2" partialSubmit="true"
+                                      icon="/icons/delete (2).png"
+                                      inlineStyle="height:30.0px;"/>
+                  </af:column>
+                  <af:column sortProperty="RecipeId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.RecipeId.label}"
+                             id="c5" width="104">
+                    <af:outputText value="#{row.RecipeId}" id="ot18">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.RecipeId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="StyleId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.StyleId.label}"
+                             id="c9" width="105">
+                    <af:outputText value="#{row.StyleId}" id="ot14">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.StyleId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Po" filterable="true" sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.Po.label}"
+                             id="c19" width="105">
+                    <af:outputText value="#{row.Po}" id="ot7"/>
+                  </af:column>
+                  <af:column sortProperty="Country" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.Country.label}"
+                             id="c10" width="105">
+                    <af:outputText value="#{row.Country}" id="ot13"/>
+                  </af:column>
+                  <af:column sortProperty="Factory" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.Factory.label}"
+                             id="c17" width="105">
+                    <af:outputText value="#{row.Factory}" id="ot4"/>
+                  </af:column>
+                  <af:column sortProperty="MachineNo" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.MachineNo.label}"
+                             id="c11" width="105">
+                    <af:outputText value="#{row.MachineNo}" id="ot1"/>
+                  </af:column>
+                  <af:column sortProperty="OperatorId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.OperatorId.label}"
+                             id="c14" width="105">
+                    <af:outputText value="#{row.OperatorId}" id="ot11">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.OperatorId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="OperatorShift" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.OperatorShift.label}"
+                             id="c16" width="105">
+                    <af:outputText value="#{row.OperatorShift}" id="ot2"/>
+                  </af:column>
+                  <af:column sortProperty="GmtCategory" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.GmtCategory.label}"
+                             id="c18" width="105">
+                    <af:outputText value="#{row.GmtCategory}" id="ot6"/>
+                  </af:column>
+                  <af:column sortProperty="GmtType" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.GmtType.label}"
+                             id="c3" width="105">
+                    <af:outputText value="#{row.GmtType}" id="ot19"/>
+                  </af:column>
+                  <af:column sortProperty="AvgWeight" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.AvgWeight.label}"
+                             id="c6" width="105">
+                    <af:outputText value="#{row.AvgWeight}" id="ot10">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.AvgWeight.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="TotalWeight" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.TotalWeight.label}"
+                             id="c7" width="105">
+                    <af:outputText value="#{row.TotalWeight}" id="ot17">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.TotalWeight.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LotQty" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.LotQty.label}"
+                             id="c4" width="105">
+                    <af:outputText value="#{row.LotQty}" id="ot15">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.LotQty.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Tdate" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.Tdate.label}"
+                             id="c15" width="36">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.Tdate}"
+                                    id="id2"/>
+                    </f:facet>
+                    <af:outputText value="#{row.Tdate}" id="ot8">
+                      <af:convertDateTime pattern="#{bindings.MjGwlRecipeMasterVO1.hints.Tdate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Status" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.Status.label}"
+                             id="c13">
+                    <af:outputText value="#{row.Status}" id="ot9">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.Status.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="CreationDate" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.CreationDate.label}"
+                             id="c12">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                                    id="id3"/>
+                    </f:facet>
+                    <af:outputText value="#{row.CreationDate}" id="ot16">
+                      <af:convertDateTime pattern="#{bindings.MjGwlRecipeMasterVO1.hints.CreationDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="CreatedBy" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.CreatedBy.label}"
+                             id="c2">
+                    <af:outputText value="#{row.CreatedBy}" id="ot12">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.CreatedBy.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LastUpdatedBy" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.LastUpdatedBy.label}"
+                             id="c1">
+                    <af:outputText value="#{row.LastUpdatedBy}" id="ot3">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeMasterVO1.hints.LastUpdatedBy.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LastUpdateDate" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeMasterVO1.hints.LastUpdateDate.label}"
+                             id="c8">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.LastUpdateDate}"
+                                    id="id1"/>
+                    </f:facet>
+                    <af:outputText value="#{row.LastUpdateDate}" id="ot5">
+                      <af:convertDateTime pattern="#{bindings.MjGwlRecipeMasterVO1.hints.LastUpdateDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:showDetailItem>
+          </af:panelTabbed>
+          <af:panelTabbed id="pt2" styleClass="AFStretchWidth"
+                          inlineStyle="height:350px;">
+            <af:showDetailItem text="Recipe Details" id="sdi2"
+                               icon="/icons/hiearachy.png">
+              <af:panelCollection id="pc2" styleClass="AFStretchWidth">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.MjGwlRecipeDetailVO1.collectionModel}"
+                          var="row"
+                          rows="#{bindings.MjGwlRecipeDetailVO1.rangeSize}"
+                          emptyText="#{bindings.MjGwlRecipeDetailVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.MjGwlRecipeDetailVO1.rangeSize}"
+                          rowBandingInterval="0"
+                          filterModel="#{bindings.MjGwlRecipeDetailVO1Query.queryDescriptor}"
+                          queryListener="#{bindings.MjGwlRecipeDetailVO1Query.processQuery}"
+                          filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.MjGwlRecipeDetailVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.MjGwlRecipeDetailVO1.collectionModel.makeCurrent}"
+                          rowSelection="single" id="t3"
+                          partialTriggers=":::pc1:t1">
+                  <af:column sortProperty="RecipeId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.label}"
+                             id="c23">
+                    <af:outputText value="#{row.RecipeId}" id="ot30">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LineId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.label}"
+                             id="c27">
+                    <af:outputText value="#{row.LineId}" id="ot28">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="WashTypeId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.label}"
+                             id="c32">
+                    <af:outputText value="#{row.WashTypeId}" id="ot31">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="ChemicalId" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.label}"
+                             id="c28">
+                    <af:outputText value="#{row.ChemicalId}" id="ot21">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="ChemicalQty" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
+                             id="c26">
+                    <af:outputText value="#{row.ChemicalQty}" id="ot24">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Temperature" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
+                             id="c20">
+                    <af:outputText value="#{row.Temperature}" id="ot20">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="MachineRpm" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
+                             id="c31">
+                    <af:outputText value="#{row.MachineRpm}" id="ot25">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Remarks" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.label}"
+                             id="c22">
+                    <af:outputText value="#{row.Remarks}" id="ot29"/>
+                  </af:column>
+                  <af:column sortProperty="Status" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Status.label}"
+                             id="c21">
+                    <af:outputText value="#{row.Status}" id="ot27">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Status.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LastUpdateDate" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.label}"
+                             id="c29">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.LastUpdateDate}"
+                                    id="id5"/>
+                    </f:facet>
+                    <af:outputText value="#{row.LastUpdateDate}" id="ot32">
+                      <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="CreationDate" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.label}"
+                             id="c25">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                                    id="id4"/>
+                    </f:facet>
+                    <af:outputText value="#{row.CreationDate}" id="ot23">
+                      <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="LastUpdatedBy" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.label}"
+                             id="c24">
+                    <af:outputText value="#{row.LastUpdatedBy}" id="ot26">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="CreatedBy" filterable="true"
+                             sortable="true"
+                             headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.label}"
+                             id="c30">
+                    <af:outputText value="#{row.CreatedBy}" id="ot22">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.format}"/>
+                    </af:outputText>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:showDetailItem>
+          </af:panelTabbed>
+        </af:panelHeader>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

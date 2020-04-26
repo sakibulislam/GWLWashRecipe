@@ -1,0 +1,465 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:panelHeader text="GWL Wash Recipe Edit" id="ph1"
+                        icon="/icons/edit new.png">
+          <f:facet name="context"/>
+          <f:facet name="menuBar"/>
+          <f:facet name="toolbar"/>
+          <f:facet name="legend"/>
+          <f:facet name="info"/>
+          <af:panelFormLayout id="pfl1" rows="5" maxColumns="4">
+            <af:inputText value="#{bindings.RecipeId.inputValue}"
+                          label="#{bindings.RecipeId.hints.label}"
+                          required="#{bindings.RecipeId.hints.mandatory}"
+                          columns="#{bindings.RecipeId.hints.displayWidth}"
+                          maximumLength="#{bindings.RecipeId.hints.precision}"
+                          shortDesc="#{bindings.RecipeId.hints.tooltip}"
+                          id="it15">
+              <f:validator binding="#{bindings.RecipeId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.RecipeId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.StyleId.inputValue}"
+                          label="#{bindings.StyleId.hints.label}"
+                          required="#{bindings.StyleId.hints.mandatory}"
+                          columns="#{bindings.StyleId.hints.displayWidth}"
+                          maximumLength="#{bindings.StyleId.hints.precision}"
+                          shortDesc="#{bindings.StyleId.hints.tooltip}"
+                          id="it4">
+              <f:validator binding="#{bindings.StyleId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.StyleId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Po.inputValue}"
+                          label="#{bindings.Po.hints.label}"
+                          required="#{bindings.Po.hints.mandatory}"
+                          columns="#{bindings.Po.hints.displayWidth}"
+                          maximumLength="#{bindings.Po.hints.precision}"
+                          shortDesc="#{bindings.Po.hints.tooltip}" id="it9">
+              <f:validator binding="#{bindings.Po.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Country.inputValue}"
+                          label="#{bindings.Country.hints.label}"
+                          required="#{bindings.Country.hints.mandatory}"
+                          columns="#{bindings.Country.hints.displayWidth}"
+                          maximumLength="#{bindings.Country.hints.precision}"
+                          shortDesc="#{bindings.Country.hints.tooltip}"
+                          id="it16">
+              <f:validator binding="#{bindings.Country.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Factory.inputValue}"
+                          label="#{bindings.Factory.hints.label}"
+                          required="#{bindings.Factory.hints.mandatory}"
+                          columns="#{bindings.Factory.hints.displayWidth}"
+                          maximumLength="#{bindings.Factory.hints.precision}"
+                          shortDesc="#{bindings.Factory.hints.tooltip}"
+                          id="it11">
+              <f:validator binding="#{bindings.Factory.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.MachineNo.inputValue}"
+                          label="#{bindings.MachineNo.hints.label}"
+                          required="#{bindings.MachineNo.hints.mandatory}"
+                          columns="#{bindings.MachineNo.hints.displayWidth}"
+                          maximumLength="#{bindings.MachineNo.hints.precision}"
+                          shortDesc="#{bindings.MachineNo.hints.tooltip}"
+                          id="it2">
+              <f:validator binding="#{bindings.MachineNo.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OperatorId.inputValue}"
+                          label="#{bindings.OperatorId.hints.label}"
+                          required="#{bindings.OperatorId.hints.mandatory}"
+                          columns="#{bindings.OperatorId.hints.displayWidth}"
+                          maximumLength="#{bindings.OperatorId.hints.precision}"
+                          shortDesc="#{bindings.OperatorId.hints.tooltip}"
+                          id="it14">
+              <f:validator binding="#{bindings.OperatorId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.OperatorId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OperatorShift.inputValue}"
+                          label="#{bindings.OperatorShift.hints.label}"
+                          required="#{bindings.OperatorShift.hints.mandatory}"
+                          columns="#{bindings.OperatorShift.hints.displayWidth}"
+                          maximumLength="#{bindings.OperatorShift.hints.precision}"
+                          shortDesc="#{bindings.OperatorShift.hints.tooltip}"
+                          id="it8">
+              <f:validator binding="#{bindings.OperatorShift.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.GmtCategory.inputValue}"
+                          label="#{bindings.GmtCategory.hints.label}"
+                          required="#{bindings.GmtCategory.hints.mandatory}"
+                          columns="#{bindings.GmtCategory.hints.displayWidth}"
+                          maximumLength="#{bindings.GmtCategory.hints.precision}"
+                          shortDesc="#{bindings.GmtCategory.hints.tooltip}"
+                          id="it12">
+              <f:validator binding="#{bindings.GmtCategory.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.GmtType.inputValue}"
+                          label="#{bindings.GmtType.hints.label}"
+                          required="#{bindings.GmtType.hints.mandatory}"
+                          columns="#{bindings.GmtType.hints.displayWidth}"
+                          maximumLength="#{bindings.GmtType.hints.precision}"
+                          shortDesc="#{bindings.GmtType.hints.tooltip}"
+                          id="it13">
+              <f:validator binding="#{bindings.GmtType.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.AvgWeight.inputValue}"
+                          label="#{bindings.AvgWeight.hints.label}"
+                          required="#{bindings.AvgWeight.hints.mandatory}"
+                          columns="#{bindings.AvgWeight.hints.displayWidth}"
+                          maximumLength="#{bindings.AvgWeight.hints.precision}"
+                          shortDesc="#{bindings.AvgWeight.hints.tooltip}"
+                          id="it6">
+              <f:validator binding="#{bindings.AvgWeight.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AvgWeight.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TotalWeight.inputValue}"
+                          label="#{bindings.TotalWeight.hints.label}"
+                          required="#{bindings.TotalWeight.hints.mandatory}"
+                          columns="#{bindings.TotalWeight.hints.displayWidth}"
+                          maximumLength="#{bindings.TotalWeight.hints.precision}"
+                          shortDesc="#{bindings.TotalWeight.hints.tooltip}"
+                          id="it1">
+              <f:validator binding="#{bindings.TotalWeight.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.TotalWeight.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LotQty.inputValue}"
+                          label="#{bindings.LotQty.hints.label}"
+                          required="#{bindings.LotQty.hints.mandatory}"
+                          columns="#{bindings.LotQty.hints.displayWidth}"
+                          maximumLength="#{bindings.LotQty.hints.precision}"
+                          shortDesc="#{bindings.LotQty.hints.tooltip}" id="it3">
+              <f:validator binding="#{bindings.LotQty.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LotQty.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.Tdate.inputValue}"
+                          label="#{bindings.Tdate.hints.label}"
+                          required="#{bindings.Tdate.hints.mandatory}"
+                          shortDesc="#{bindings.Tdate.hints.tooltip}" id="id2">
+              <f:validator binding="#{bindings.Tdate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.Tdate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.Status.inputValue}"
+                          label="#{bindings.Status.hints.label}"
+                          required="#{bindings.Status.hints.mandatory}"
+                          columns="#{bindings.Status.hints.displayWidth}"
+                          maximumLength="#{bindings.Status.hints.precision}"
+                          shortDesc="#{bindings.Status.hints.tooltip}" id="it7">
+              <f:validator binding="#{bindings.Status.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.Status.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.CreationDate.inputValue}"
+                          label="#{bindings.CreationDate.hints.label}"
+                          required="#{bindings.CreationDate.hints.mandatory}"
+                          shortDesc="#{bindings.CreationDate.hints.tooltip}"
+                          id="id3">
+              <f:validator binding="#{bindings.CreationDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
+            </af:inputDate>
+            <af:inputText value="#{bindings.CreatedBy.inputValue}"
+                          label="#{bindings.CreatedBy.hints.label}"
+                          required="#{bindings.CreatedBy.hints.mandatory}"
+                          columns="#{bindings.CreatedBy.hints.displayWidth}"
+                          maximumLength="#{bindings.CreatedBy.hints.precision}"
+                          shortDesc="#{bindings.CreatedBy.hints.tooltip}"
+                          id="it10">
+              <f:validator binding="#{bindings.CreatedBy.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CreatedBy.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LastUpdatedBy.inputValue}"
+                          label="#{bindings.LastUpdatedBy.hints.label}"
+                          required="#{bindings.LastUpdatedBy.hints.mandatory}"
+                          columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
+                          maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
+                          shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}"
+                          id="it5">
+              <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LastUpdatedBy.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.LastUpdateDate.inputValue}"
+                          label="#{bindings.LastUpdateDate.hints.label}"
+                          required="#{bindings.LastUpdateDate.hints.mandatory}"
+                          shortDesc="#{bindings.LastUpdateDate.hints.tooltip}"
+                          id="id1">
+              <f:validator binding="#{bindings.LastUpdateDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.LastUpdateDate.format}"/>
+            </af:inputDate>
+          </af:panelFormLayout>
+        </af:panelHeader>
+        <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
+          <af:commandButton actionListener="#{bindings.Commit.execute}"
+                            text="Save" id="cb3"
+                            icon="/icons/save new.png"
+                            inlineStyle="height:30.0px;"/>
+          <af:spacer width="20" height="10" id="s1"/>
+          <af:commandButton text="Back" id="cb4" icon="/icons/go back.jpg"
+                            action="*returntoSearchPG"
+                            inlineStyle="height:30.0px;"/>
+        </af:panelGroupLayout>
+        <af:panelTabbed id="pt1" styleClass="AFStretchWidth"
+                        inlineStyle="height:350px;">
+          <af:showDetailItem text="Recipe Details" id="sdi1"
+                             icon="/icons/hiearachy.png">
+            <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t2">
+                  <af:commandButton actionListener="#{bindings.CreateInsert.execute}"
+                                    text="Create"
+                                    disabled="#{!bindings.CreateInsert.enabled}"
+                                    id="cb1" partialSubmit="true"
+                                    icon="/icons/Icon_6-512.png"
+                                    inlineStyle="height:30.0px;"/>
+                  <af:commandButton actionListener="#{bindings.Delete.execute}"
+                                    text="Delete"
+                                    disabled="#{!bindings.Delete.enabled}"
+                                    id="cb2" partialSubmit="true"
+                                    icon="/icons/delete (2).png"
+                                    inlineStyle="height:30.0px;"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.MjGwlRecipeDetailVO1.collectionModel}"
+                        var="row"
+                        rows="#{bindings.MjGwlRecipeDetailVO1.rangeSize}"
+                        emptyText="#{bindings.MjGwlRecipeDetailVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        fetchSize="#{bindings.MjGwlRecipeDetailVO1.rangeSize}"
+                        rowBandingInterval="0"
+                        filterModel="#{bindings.MjGwlRecipeDetailVO1Query.queryDescriptor}"
+                        queryListener="#{bindings.MjGwlRecipeDetailVO1Query.processQuery}"
+                        filterVisible="true" varStatus="vs"
+                        selectedRowKeys="#{bindings.MjGwlRecipeDetailVO1.collectionModel.selectedRow}"
+                        selectionListener="#{bindings.MjGwlRecipeDetailVO1.collectionModel.makeCurrent}"
+                        rowSelection="single" id="t1"
+                        partialTriggers="::cb2 ::cb1"
+                        binding="#{MainBean.recipeDetailsTable}">
+                <af:column sortProperty="RecipeId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.label}"
+                           id="c3">
+                  <af:inputText value="#{row.bindings.RecipeId.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.tooltip}"
+                                id="it19">
+                    <f:validator binding="#{row.bindings.RecipeId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LineId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.label}"
+                           id="c12">
+                  <af:inputText value="#{row.bindings.LineId.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.tooltip}"
+                                id="it27">
+                    <f:validator binding="#{row.bindings.LineId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="WashTypeId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.label}"
+                           id="c2">
+                  <af:inputText value="#{row.bindings.WashTypeId.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.tooltip}"
+                                id="it21">
+                    <f:validator binding="#{row.bindings.WashTypeId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="ChemicalId" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.label}"
+                           id="c4">
+                  <af:inputText value="#{row.bindings.ChemicalId.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.tooltip}"
+                                id="it26">
+                    <f:validator binding="#{row.bindings.ChemicalId.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="ChemicalQty" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
+                           id="c10">
+                  <af:inputText value="#{row.bindings.ChemicalQty.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.tooltip}"
+                                id="it24">
+                    <f:validator binding="#{row.bindings.ChemicalQty.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Temperature" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
+                           id="c13">
+                  <af:inputText value="#{row.bindings.Temperature.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.tooltip}"
+                                id="it17">
+                    <f:validator binding="#{row.bindings.Temperature.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="MachineRpm" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
+                           id="c6">
+                  <af:inputText value="#{row.bindings.MachineRpm.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.tooltip}"
+                                id="it18">
+                    <f:validator binding="#{row.bindings.MachineRpm.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Remarks" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.label}"
+                           id="c11">
+                  <af:inputText value="#{row.bindings.Remarks.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.tooltip}"
+                                id="it23">
+                    <f:validator binding="#{row.bindings.Remarks.validator}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="Status" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Status.label}"
+                           id="c9">
+                  <af:inputText value="#{row.bindings.Status.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.Status.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Status.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Status.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Status.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Status.tooltip}"
+                                id="it25">
+                    <f:validator binding="#{row.bindings.Status.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Status.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="LastUpdateDate" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.label}"
+                           id="c1">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.LastUpdateDate}"
+                                  id="id4"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.LastUpdateDate.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.mandatory}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.tooltip}"
+                                id="id6">
+                    <f:validator binding="#{row.bindings.LastUpdateDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="CreationDate" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.label}"
+                           id="c5">
+                  <f:facet name="filter">
+                    <af:inputDate value="#{vs.filterCriteria.CreationDate}"
+                                  id="id7"/>
+                  </f:facet>
+                  <af:inputDate value="#{row.bindings.CreationDate.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.mandatory}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.tooltip}"
+                                id="id5">
+                    <f:validator binding="#{row.bindings.CreationDate.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.format}"/>
+                  </af:inputDate>
+                </af:column>
+                <af:column sortProperty="LastUpdatedBy" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.label}"
+                           id="c8">
+                  <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.tooltip}"
+                                id="it20">
+                    <f:validator binding="#{row.bindings.LastUpdatedBy.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.format}"/>
+                  </af:inputText>
+                </af:column>
+                <af:column sortProperty="CreatedBy" filterable="true"
+                           sortable="true"
+                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.label}"
+                           id="c7">
+                  <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.tooltip}"
+                                id="it22">
+                    <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.format}"/>
+                  </af:inputText>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+          </af:showDetailItem>
+        </af:panelTabbed>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

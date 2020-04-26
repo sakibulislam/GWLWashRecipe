@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="SearchPG">
+    <page>/SearchPG.jspx</page>
+  </view>
+  <view id="EditPG">
+    <page>/EditPG.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id id="__2">SearchPG</from-activity-id>
+    <control-flow-case id="__4">
+      <from-outcome id="__6">*gotoEditPG</from-outcome>
+      <to-activity-id id="__3">EditPG</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__5">
+    <from-activity-id id="__7">EditPG</from-activity-id>
+    <control-flow-case id="__9">
+      <from-outcome id="__10">*returntoSearchPG</from-outcome>
+      <to-activity-id id="__8">SearchPG</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__11">
+    <managed-bean-name id="__14">MainBean</managed-bean-name>
+    <managed-bean-class id="__13">main.Main</managed-bean-class>
+    <managed-bean-scope id="__12">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>
