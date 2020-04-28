@@ -163,6 +163,52 @@
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="WashType"
+    Precision="100"
+    ColumnName="WASH_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MJ_GWL_RECIPE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="WaterAmount"
+    ColumnName="WATER_AMOUNT"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MJ_GWL_RECIPE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChemicalDesc"
+    Precision="500"
+    ColumnName="CHEMICAL_DESC"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="MJ_GWL_RECIPE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ChemicalRatio"
+    ColumnName="CHEMICAL_RATIO"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="MJ_GWL_RECIPE_DETAIL">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="39"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="MjGwlRecipeMasterEO"
     Association="model.entities.MjGwlRecipeDetailR01Assoc"

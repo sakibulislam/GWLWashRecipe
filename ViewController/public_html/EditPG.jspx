@@ -15,14 +15,205 @@
           <f:facet name="toolbar"/>
           <f:facet name="legend"/>
           <f:facet name="info"/>
-          <af:panelFormLayout id="pfl1" rows="5" maxColumns="4">
+          <af:panelFormLayout id="pfl1" maxColumns="3"
+                              inlineStyle="background-color:rgb(247,247,247); border-width:thin; border-style:solid;border-color:rgb(198,198,198);"
+                              partialTriggers="cb3" rows="5">
+            <af:inputText value="#{bindings.RecipeDocNo.inputValue}"
+                          label="Recipe Doc No:"
+                          required="#{bindings.RecipeDocNo.hints.mandatory}"
+                          columns="#{bindings.RecipeDocNo.hints.displayWidth}"
+                          maximumLength="#{bindings.RecipeDocNo.hints.precision}"
+                          shortDesc="#{bindings.RecipeDocNo.hints.tooltip}"
+                          id="it5" readOnly="true"
+                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.RecipeDocNo.validator}"/>
+            </af:inputText>
+            <af:inputComboboxListOfValues id="buyerId"
+                                          popupTitle="Search and Select: #{bindings.Buyer.hints.label}"
+                                          value="#{bindings.Buyer.inputValue}"
+                                          label="Buyer:"
+                                          model="#{bindings.Buyer.listOfValuesModel}"
+                                          columns="#{bindings.Buyer.hints.displayWidth}"
+                                          shortDesc="#{bindings.Buyer.hints.tooltip}"
+                                          contentStyle="width:150px;"
+                                          required="true">
+              <f:validator binding="#{bindings.Buyer.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="seasonId"
+                                          popupTitle="Search and Select: #{bindings.Season.hints.label}"
+                                          value="#{bindings.Season.inputValue}"
+                                          label="Season:"
+                                          model="#{bindings.Season.listOfValuesModel}"
+                                          columns="#{bindings.Season.hints.displayWidth}"
+                                          shortDesc="#{bindings.Season.hints.tooltip}"
+                                          contentStyle="width:150px;"
+                                          required="true">
+              <f:validator binding="#{bindings.Season.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="styleId"
+                                          popupTitle="Search and Select: #{bindings.Style.hints.label}"
+                                          value="#{bindings.Style.inputValue}"
+                                          label="Style:"
+                                          model="#{bindings.Style.listOfValuesModel}"
+                                          required="#{bindings.Style.hints.mandatory}"
+                                          columns="#{bindings.Style.hints.displayWidth}"
+                                          shortDesc="#{bindings.Style.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Style.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="washId"
+                                          popupTitle="Search and Select: #{bindings.Wash.hints.label}"
+                                          value="#{bindings.Wash.inputValue}"
+                                          label="Wash:"
+                                          model="#{bindings.Wash.listOfValuesModel}"
+                                          required="#{bindings.Wash.hints.mandatory}"
+                                          columns="#{bindings.Wash.hints.displayWidth}"
+                                          shortDesc="#{bindings.Wash.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Wash.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="colorId"
+                                          popupTitle="Search and Select: #{bindings.Color.hints.label}"
+                                          value="#{bindings.Color.inputValue}"
+                                          label="Color:"
+                                          model="#{bindings.Color.listOfValuesModel}"
+                                          required="#{bindings.Color.hints.mandatory}"
+                                          columns="#{bindings.Color.hints.displayWidth}"
+                                          shortDesc="#{bindings.Color.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Color.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputText value="#{bindings.Po.inputValue}"
+                          label="PO/Lot:"
+                          required="#{bindings.Po.hints.mandatory}"
+                          columns="#{bindings.Po.hints.displayWidth}"
+                          maximumLength="#{bindings.Po.hints.precision}"
+                          shortDesc="#{bindings.Po.hints.tooltip}" id="it7"
+                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Po.validator}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.Country.inputValue}"
+                          label="Country:"
+                          required="#{bindings.Country.hints.mandatory}"
+                          columns="#{bindings.Country.hints.displayWidth}"
+                          maximumLength="#{bindings.Country.hints.precision}"
+                          shortDesc="#{bindings.Country.hints.tooltip}"
+                          id="it10" contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Country.validator}"/>
+            </af:inputText>
+            <af:inputComboboxListOfValues id="factoryId"
+                                          popupTitle="Search and Select: #{bindings.Factory.hints.label}"
+                                          value="#{bindings.Factory.inputValue}"
+                                          label="Factory:"
+                                          model="#{bindings.Factory.listOfValuesModel}"
+                                          required="#{bindings.Factory.hints.mandatory}"
+                                          columns="#{bindings.Factory.hints.displayWidth}"
+                                          shortDesc="#{bindings.Factory.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Factory.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="machineNoId"
+                                          popupTitle="Search and Select: #{bindings.MachineNo.hints.label}"
+                                          value="#{bindings.MachineNo.inputValue}"
+                                          label="Machine No:"
+                                          model="#{bindings.MachineNo.listOfValuesModel}"
+                                          required="#{bindings.MachineNo.hints.mandatory}"
+                                          columns="#{bindings.MachineNo.hints.displayWidth}"
+                                          shortDesc="#{bindings.MachineNo.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.MachineNo.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputText value="#{bindings.OperatorName.inputValue}"
+                          required="#{bindings.OperatorName.hints.mandatory}"
+                          columns="#{bindings.OperatorName.hints.displayWidth}"
+                          maximumLength="#{bindings.OperatorName.hints.precision}"
+                          shortDesc="#{bindings.OperatorName.hints.tooltip}"
+                          id="it15" label="Operator Name LOV:"
+                          inlineStyle="background-color:Silver;"
+                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.OperatorName.validator}"/>
+            </af:inputText>
+            <af:inputComboboxListOfValues id="operatorShiftId"
+                                          popupTitle="Search and Select: #{bindings.OperatorShift.hints.label}"
+                                          value="#{bindings.OperatorShift.inputValue}"
+                                          label="Operator Shift:"
+                                          model="#{bindings.OperatorShift.listOfValuesModel}"
+                                          required="#{bindings.OperatorShift.hints.mandatory}"
+                                          columns="#{bindings.OperatorShift.hints.displayWidth}"
+                                          shortDesc="#{bindings.OperatorShift.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.OperatorShift.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="gmtCategoryId"
+                                          popupTitle="Search and Select: #{bindings.GmtCategory.hints.label}"
+                                          value="#{bindings.GmtCategory.inputValue}"
+                                          label="GMT Category:"
+                                          model="#{bindings.GmtCategory.listOfValuesModel}"
+                                          required="#{bindings.GmtCategory.hints.mandatory}"
+                                          columns="#{bindings.GmtCategory.hints.displayWidth}"
+                                          shortDesc="#{bindings.GmtCategory.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.GmtCategory.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="gmtTypeId"
+                                          popupTitle="Search and Select: #{bindings.GmtType.hints.label}"
+                                          value="#{bindings.GmtType.inputValue}"
+                                          label="GMT Type:"
+                                          model="#{bindings.GmtType.listOfValuesModel}"
+                                          required="#{bindings.GmtType.hints.mandatory}"
+                                          columns="#{bindings.GmtType.hints.displayWidth}"
+                                          shortDesc="#{bindings.GmtType.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.GmtType.validator}"/>
+            </af:inputComboboxListOfValues>
+            <af:inputText value="#{bindings.AvgWeight.inputValue}"
+                          label="Avg Weight/GMT:"
+                          required="#{bindings.AvgWeight.hints.mandatory}"
+                          columns="#{bindings.AvgWeight.hints.displayWidth}"
+                          maximumLength="#{bindings.AvgWeight.hints.precision}"
+                          shortDesc="#{bindings.AvgWeight.hints.tooltip}"
+                          id="it14" contentStyle="width:150px;">
+              <f:validator binding="#{bindings.AvgWeight.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.AvgWeight.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.LotQty.inputValue}"
+                          label="Lot Qty:"
+                          required="#{bindings.LotQty.hints.mandatory}"
+                          columns="#{bindings.LotQty.hints.displayWidth}"
+                          maximumLength="#{bindings.LotQty.hints.precision}"
+                          shortDesc="#{bindings.LotQty.hints.tooltip}" id="it4"
+                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.LotQty.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.LotQty.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.TotalWeight.inputValue}"
+                          label="Total Weight:"
+                          required="#{bindings.TotalWeight.hints.mandatory}"
+                          columns="#{bindings.TotalWeight.hints.displayWidth}"
+                          maximumLength="#{bindings.TotalWeight.hints.precision}"
+                          shortDesc="#{bindings.TotalWeight.hints.tooltip}"
+                          id="it9" contentStyle="width:150px;">
+              <f:validator binding="#{bindings.TotalWeight.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.TotalWeight.format}"/>
+            </af:inputText>
+            <af:inputDate value="#{bindings.Tdate.inputValue}"
+                          label="Date:"
+                          required="#{bindings.Tdate.hints.mandatory}"
+                          shortDesc="#{bindings.Tdate.hints.tooltip}" id="id3"
+                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.Tdate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.Tdate.format}"/>
+            </af:inputDate>
             <af:inputText value="#{bindings.RecipeId.inputValue}"
                           label="#{bindings.RecipeId.hints.label}"
                           required="#{bindings.RecipeId.hints.mandatory}"
                           columns="#{bindings.RecipeId.hints.displayWidth}"
                           maximumLength="#{bindings.RecipeId.hints.precision}"
                           shortDesc="#{bindings.RecipeId.hints.tooltip}"
-                          id="it15">
+                          id="it2" rendered="false">
               <f:validator binding="#{bindings.RecipeId.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.RecipeId.format}"/>
@@ -33,129 +224,18 @@
                           columns="#{bindings.StyleId.hints.displayWidth}"
                           maximumLength="#{bindings.StyleId.hints.precision}"
                           shortDesc="#{bindings.StyleId.hints.tooltip}"
-                          id="it4">
+                          id="it3" rendered="false">
               <f:validator binding="#{bindings.StyleId.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.StyleId.format}"/>
             </af:inputText>
-            <af:inputText value="#{bindings.Po.inputValue}"
-                          label="#{bindings.Po.hints.label}"
-                          required="#{bindings.Po.hints.mandatory}"
-                          columns="#{bindings.Po.hints.displayWidth}"
-                          maximumLength="#{bindings.Po.hints.precision}"
-                          shortDesc="#{bindings.Po.hints.tooltip}" id="it9">
-              <f:validator binding="#{bindings.Po.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.Country.inputValue}"
-                          label="#{bindings.Country.hints.label}"
-                          required="#{bindings.Country.hints.mandatory}"
-                          columns="#{bindings.Country.hints.displayWidth}"
-                          maximumLength="#{bindings.Country.hints.precision}"
-                          shortDesc="#{bindings.Country.hints.tooltip}"
-                          id="it16">
-              <f:validator binding="#{bindings.Country.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.Factory.inputValue}"
-                          label="#{bindings.Factory.hints.label}"
-                          required="#{bindings.Factory.hints.mandatory}"
-                          columns="#{bindings.Factory.hints.displayWidth}"
-                          maximumLength="#{bindings.Factory.hints.precision}"
-                          shortDesc="#{bindings.Factory.hints.tooltip}"
-                          id="it11">
-              <f:validator binding="#{bindings.Factory.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.MachineNo.inputValue}"
-                          label="#{bindings.MachineNo.hints.label}"
-                          required="#{bindings.MachineNo.hints.mandatory}"
-                          columns="#{bindings.MachineNo.hints.displayWidth}"
-                          maximumLength="#{bindings.MachineNo.hints.precision}"
-                          shortDesc="#{bindings.MachineNo.hints.tooltip}"
-                          id="it2">
-              <f:validator binding="#{bindings.MachineNo.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.OperatorId.inputValue}"
-                          label="#{bindings.OperatorId.hints.label}"
-                          required="#{bindings.OperatorId.hints.mandatory}"
-                          columns="#{bindings.OperatorId.hints.displayWidth}"
-                          maximumLength="#{bindings.OperatorId.hints.precision}"
-                          shortDesc="#{bindings.OperatorId.hints.tooltip}"
-                          id="it14">
-              <f:validator binding="#{bindings.OperatorId.validator}"/>
-              <af:convertNumber groupingUsed="false"
-                                pattern="#{bindings.OperatorId.format}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.OperatorShift.inputValue}"
-                          label="#{bindings.OperatorShift.hints.label}"
-                          required="#{bindings.OperatorShift.hints.mandatory}"
-                          columns="#{bindings.OperatorShift.hints.displayWidth}"
-                          maximumLength="#{bindings.OperatorShift.hints.precision}"
-                          shortDesc="#{bindings.OperatorShift.hints.tooltip}"
-                          id="it8">
-              <f:validator binding="#{bindings.OperatorShift.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.GmtCategory.inputValue}"
-                          label="#{bindings.GmtCategory.hints.label}"
-                          required="#{bindings.GmtCategory.hints.mandatory}"
-                          columns="#{bindings.GmtCategory.hints.displayWidth}"
-                          maximumLength="#{bindings.GmtCategory.hints.precision}"
-                          shortDesc="#{bindings.GmtCategory.hints.tooltip}"
-                          id="it12">
-              <f:validator binding="#{bindings.GmtCategory.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.GmtType.inputValue}"
-                          label="#{bindings.GmtType.hints.label}"
-                          required="#{bindings.GmtType.hints.mandatory}"
-                          columns="#{bindings.GmtType.hints.displayWidth}"
-                          maximumLength="#{bindings.GmtType.hints.precision}"
-                          shortDesc="#{bindings.GmtType.hints.tooltip}"
-                          id="it13">
-              <f:validator binding="#{bindings.GmtType.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.AvgWeight.inputValue}"
-                          label="#{bindings.AvgWeight.hints.label}"
-                          required="#{bindings.AvgWeight.hints.mandatory}"
-                          columns="#{bindings.AvgWeight.hints.displayWidth}"
-                          maximumLength="#{bindings.AvgWeight.hints.precision}"
-                          shortDesc="#{bindings.AvgWeight.hints.tooltip}"
-                          id="it6">
-              <f:validator binding="#{bindings.AvgWeight.validator}"/>
-              <af:convertNumber groupingUsed="false"
-                                pattern="#{bindings.AvgWeight.format}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.TotalWeight.inputValue}"
-                          label="#{bindings.TotalWeight.hints.label}"
-                          required="#{bindings.TotalWeight.hints.mandatory}"
-                          columns="#{bindings.TotalWeight.hints.displayWidth}"
-                          maximumLength="#{bindings.TotalWeight.hints.precision}"
-                          shortDesc="#{bindings.TotalWeight.hints.tooltip}"
-                          id="it1">
-              <f:validator binding="#{bindings.TotalWeight.validator}"/>
-              <af:convertNumber groupingUsed="false"
-                                pattern="#{bindings.TotalWeight.format}"/>
-            </af:inputText>
-            <af:inputText value="#{bindings.LotQty.inputValue}"
-                          label="#{bindings.LotQty.hints.label}"
-                          required="#{bindings.LotQty.hints.mandatory}"
-                          columns="#{bindings.LotQty.hints.displayWidth}"
-                          maximumLength="#{bindings.LotQty.hints.precision}"
-                          shortDesc="#{bindings.LotQty.hints.tooltip}" id="it3">
-              <f:validator binding="#{bindings.LotQty.validator}"/>
-              <af:convertNumber groupingUsed="false"
-                                pattern="#{bindings.LotQty.format}"/>
-            </af:inputText>
-            <af:inputDate value="#{bindings.Tdate.inputValue}"
-                          label="#{bindings.Tdate.hints.label}"
-                          required="#{bindings.Tdate.hints.mandatory}"
-                          shortDesc="#{bindings.Tdate.hints.tooltip}" id="id2">
-              <f:validator binding="#{bindings.Tdate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.Tdate.format}"/>
-            </af:inputDate>
             <af:inputText value="#{bindings.Status.inputValue}"
                           label="#{bindings.Status.hints.label}"
                           required="#{bindings.Status.hints.mandatory}"
                           columns="#{bindings.Status.hints.displayWidth}"
                           maximumLength="#{bindings.Status.hints.precision}"
-                          shortDesc="#{bindings.Status.hints.tooltip}" id="it7">
+                          shortDesc="#{bindings.Status.hints.tooltip}"
+                          id="it12" inlineStyle="background-color:Silver;">
               <f:validator binding="#{bindings.Status.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.Status.format}"/>
@@ -164,7 +244,7 @@
                           label="#{bindings.CreationDate.hints.label}"
                           required="#{bindings.CreationDate.hints.mandatory}"
                           shortDesc="#{bindings.CreationDate.hints.tooltip}"
-                          id="id3">
+                          id="id1" rendered="false">
               <f:validator binding="#{bindings.CreationDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CreationDate.format}"/>
             </af:inputDate>
@@ -174,7 +254,7 @@
                           columns="#{bindings.CreatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.CreatedBy.hints.precision}"
                           shortDesc="#{bindings.CreatedBy.hints.tooltip}"
-                          id="it10">
+                          id="it11" rendered="false">
               <f:validator binding="#{bindings.CreatedBy.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.CreatedBy.format}"/>
@@ -185,7 +265,7 @@
                           columns="#{bindings.LastUpdatedBy.hints.displayWidth}"
                           maximumLength="#{bindings.LastUpdatedBy.hints.precision}"
                           shortDesc="#{bindings.LastUpdatedBy.hints.tooltip}"
-                          id="it5">
+                          id="it13" rendered="false">
               <f:validator binding="#{bindings.LastUpdatedBy.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.LastUpdatedBy.format}"/>
@@ -194,17 +274,51 @@
                           label="#{bindings.LastUpdateDate.hints.label}"
                           required="#{bindings.LastUpdateDate.hints.mandatory}"
                           shortDesc="#{bindings.LastUpdateDate.hints.tooltip}"
-                          id="id1">
+                          id="id2" rendered="false">
               <f:validator binding="#{bindings.LastUpdateDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.LastUpdateDate.format}"/>
             </af:inputDate>
+            <af:inputText value="#{bindings.BuyerId.inputValue}"
+                          label="#{bindings.BuyerId.hints.label}"
+                          required="#{bindings.BuyerId.hints.mandatory}"
+                          columns="#{bindings.BuyerId.hints.displayWidth}"
+                          maximumLength="#{bindings.BuyerId.hints.precision}"
+                          shortDesc="#{bindings.BuyerId.hints.tooltip}"
+                          partialTriggers="buyerId" id="it1" rendered="false">
+              <f:validator binding="#{bindings.BuyerId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.BuyerId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OrgId.inputValue}"
+                          label="#{bindings.OrgId.hints.label}"
+                          required="#{bindings.OrgId.hints.mandatory}"
+                          columns="#{bindings.OrgId.hints.displayWidth}"
+                          maximumLength="#{bindings.OrgId.hints.precision}"
+                          shortDesc="#{bindings.OrgId.hints.tooltip}"
+                          partialTriggers="factoryId" id="it6" rendered="false">
+              <f:validator binding="#{bindings.OrgId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.OrgId.format}"/>
+            </af:inputText>
+            <af:inputText value="#{bindings.OperatorId.inputValue}"
+                          label="#{bindings.OperatorId.hints.label}"
+                          required="#{bindings.OperatorId.hints.mandatory}"
+                          columns="#{bindings.OperatorId.hints.displayWidth}"
+                          maximumLength="#{bindings.OperatorId.hints.precision}"
+                          shortDesc="#{bindings.OperatorId.hints.tooltip}"
+                          id="it8">
+              <f:validator binding="#{bindings.OperatorId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.OperatorId.format}"/>
+            </af:inputText>
           </af:panelFormLayout>
         </af:panelHeader>
+        <af:spacer width="20" height="10" id="s2"/>
         <af:panelGroupLayout id="pgl1" layout="horizontal" halign="center">
           <af:commandButton actionListener="#{bindings.Commit.execute}"
                             text="Save" id="cb3"
                             icon="/icons/save new.png"
-                            inlineStyle="height:30.0px;"/>
+                            inlineStyle="height:30.0px;" partialSubmit="true"/>
           <af:spacer width="20" height="10" id="s1"/>
           <af:commandButton text="Back" id="cb4" icon="/icons/go back.jpg"
                             action="*returntoSearchPG"
@@ -245,214 +359,159 @@
                         selectedRowKeys="#{bindings.MjGwlRecipeDetailVO1.collectionModel.selectedRow}"
                         selectionListener="#{bindings.MjGwlRecipeDetailVO1.collectionModel.makeCurrent}"
                         rowSelection="single" id="t1"
-                        partialTriggers="::cb2 ::cb1"
-                        binding="#{MainBean.recipeDetailsTable}">
-                <af:column sortProperty="RecipeId" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.label}"
-                           id="c3">
-                  <af:inputText value="#{row.bindings.RecipeId.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.tooltip}"
-                                id="it19">
-                    <f:validator binding="#{row.bindings.RecipeId.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.RecipeId.format}"/>
-                  </af:inputText>
+                        partialTriggers="::cb1 ::cb2 :::cb3">
+                <af:column headerText="Sr."
+                           id="c9" align="center" sortable="true" width="25">
+                  <af:outputText value="#{vs.index+1}" id="ot1"/>
                 </af:column>
-                <af:column sortProperty="LineId" filterable="true"
+                <af:column sortProperty="WashType" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.label}"
-                           id="c12">
-                  <af:inputText value="#{row.bindings.LineId.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.tooltip}"
-                                id="it27">
-                    <f:validator binding="#{row.bindings.LineId.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LineId.format}"/>
-                  </af:inputText>
+                           headerText="Wash Type"
+                           id="c7" align="center" width="120">
+                  <af:inputComboboxListOfValues id="washTypeId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.WashType.label}"
+                                                value="#{row.bindings.WashType.inputValue}"
+                                                model="#{row.bindings.WashType.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.WashType.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.WashType.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.WashType.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;">
+                    <f:validator binding="#{row.bindings.WashType.validator}"/>
+                  </af:inputComboboxListOfValues>
                 </af:column>
-                <af:column sortProperty="WashTypeId" filterable="true"
+                <af:column sortProperty="WaterAmount" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.label}"
-                           id="c2">
-                  <af:inputText value="#{row.bindings.WashTypeId.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.tooltip}"
-                                id="it21">
-                    <f:validator binding="#{row.bindings.WashTypeId.validator}"/>
+                           headerText="Water Amount (Ltr)"
+                           id="c6" align="center" width="75">
+                  <af:inputComboboxListOfValues id="waterAmountId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.label}"
+                                                value="#{row.bindings.WaterAmount.inputValue}"
+                                                model="#{row.bindings.WaterAmount.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;width:50px;">
+                    <f:validator binding="#{row.bindings.WaterAmount.validator}"/>
                     <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.WashTypeId.format}"/>
-                  </af:inputText>
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.format}"/>
+                  </af:inputComboboxListOfValues>
                 </af:column>
-                <af:column sortProperty="ChemicalId" filterable="true"
+                <af:column headerText="Chemical Name"
+                           id="c10" align="center" sortable="true"
+                           filterable="true" width="360"
+                           sortProperty="ChemicalDesc">
+                  <af:inputListOfValues id="inputListOfValues1"
+                                        popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.label}"
+                                        value="#{row.bindings.ChemicalDesc.inputValue}"
+                                        model="#{row.bindings.ChemicalDesc.listOfValuesModel}"
+                                        required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.mandatory}"
+                                        columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.displayWidth}"
+                                        shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.tooltip}"
+                                        contentStyle="text-align:center;width:100%;"
+                                        autoSubmit="true">
+                    <f:validator binding="#{row.bindings.ChemicalDesc.validator}"/>
+                  </af:inputListOfValues>
+                </af:column>
+                <af:column sortProperty="ChemicalDesc" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.label}"
-                           id="c4">
-                  <af:inputText value="#{row.bindings.ChemicalId.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.tooltip}"
-                                id="it26">
-                    <f:validator binding="#{row.bindings.ChemicalId.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalId.format}"/>
-                  </af:inputText>
+                           headerText="Chemical Name"
+                           id="c2" align="center" width="200" rendered="false">
+                  <af:inputComboboxListOfValues id="chemicalDescId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.label}"
+                                                value="#{row.bindings.ChemicalDesc.inputValue}"
+                                                model="#{row.bindings.ChemicalDesc.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalDesc.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;">
+                    <f:validator binding="#{row.bindings.ChemicalDesc.validator}"/>
+                  </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="ChemicalQty" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
-                           id="c10">
-                  <af:inputText value="#{row.bindings.ChemicalQty.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.tooltip}"
-                                id="it24">
+                           headerText="Chemical Amount (GMs)"
+                           id="c5" align="center" width="75">
+                  <af:inputComboboxListOfValues id="chemicalQtyId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.label}"
+                                                value="#{row.bindings.ChemicalQty.inputValue}"
+                                                model="#{row.bindings.ChemicalQty.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;width:50px;">
                     <f:validator binding="#{row.bindings.ChemicalQty.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.format}"/>
+                  </af:inputComboboxListOfValues>
+                </af:column>
+                <af:column sortProperty="ChemicalRatio" filterable="true"
+                           sortable="true"
+                           headerText="Chemical Ratio (GMs/Ltr)"
+                           id="c4" align="center" width="60">
+                  <af:inputText value="#{row.bindings.ChemicalRatio.inputValue}"
+                                label="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.label}"
+                                required="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.mandatory}"
+                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.displayWidth}"
+                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.precision}"
+                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.tooltip}"
+                                id="it17" contentStyle="text-align:center;">
+                    <f:validator binding="#{row.bindings.ChemicalRatio.validator}"/>
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.format}"/>
                   </af:inputText>
                 </af:column>
                 <af:column sortProperty="Temperature" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
-                           id="c13">
-                  <af:inputText value="#{row.bindings.Temperature.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.tooltip}"
-                                id="it17">
+                           headerText="Temperature"
+                           id="c3" align="center" width="75">
+                  <af:inputComboboxListOfValues id="temperatureId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.Temperature.label}"
+                                                value="#{row.bindings.Temperature.inputValue}"
+                                                model="#{row.bindings.Temperature.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;width:50px;">
                     <f:validator binding="#{row.bindings.Temperature.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.format}"/>
-                  </af:inputText>
+                  </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="MachineRpm" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
-                           id="c6">
-                  <af:inputText value="#{row.bindings.MachineRpm.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.tooltip}"
-                                id="it18">
+                           headerText="Machine RPM"
+                           id="c1" align="center" width="75">
+                  <af:inputComboboxListOfValues id="machineRpmId"
+                                                popupTitle="Search and Select: #{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.label}"
+                                                value="#{row.bindings.MachineRpm.inputValue}"
+                                                model="#{row.bindings.MachineRpm.listOfValuesModel}"
+                                                required="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.mandatory}"
+                                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.displayWidth}"
+                                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.tooltip}"
+                                                autoSubmit="true"
+                                                contentStyle="text-align:center;width:50px;">
                     <f:validator binding="#{row.bindings.MachineRpm.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.format}"/>
-                  </af:inputText>
+                  </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="Remarks" filterable="true"
                            sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.label}"
-                           id="c11">
+                           headerText="Comment"
+                           id="c8" align="center" width="300">
                   <af:inputText value="#{row.bindings.Remarks.inputValue}"
                                 label="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.label}"
                                 required="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.mandatory}"
                                 columns="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.displayWidth}"
                                 maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.precision}"
                                 shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Remarks.tooltip}"
-                                id="it23">
+                                id="it18" contentStyle="text-align:center;">
                     <f:validator binding="#{row.bindings.Remarks.validator}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column sortProperty="Status" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.Status.label}"
-                           id="c9">
-                  <af:inputText value="#{row.bindings.Status.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.Status.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.Status.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.Status.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.Status.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.Status.tooltip}"
-                                id="it25">
-                    <f:validator binding="#{row.bindings.Status.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Status.format}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column sortProperty="LastUpdateDate" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.label}"
-                           id="c1">
-                  <f:facet name="filter">
-                    <af:inputDate value="#{vs.filterCriteria.LastUpdateDate}"
-                                  id="id4"/>
-                  </f:facet>
-                  <af:inputDate value="#{row.bindings.LastUpdateDate.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.mandatory}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.tooltip}"
-                                id="id6">
-                    <f:validator binding="#{row.bindings.LastUpdateDate.validator}"/>
-                    <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdateDate.format}"/>
-                  </af:inputDate>
-                </af:column>
-                <af:column sortProperty="CreationDate" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.label}"
-                           id="c5">
-                  <f:facet name="filter">
-                    <af:inputDate value="#{vs.filterCriteria.CreationDate}"
-                                  id="id7"/>
-                  </f:facet>
-                  <af:inputDate value="#{row.bindings.CreationDate.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.mandatory}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.tooltip}"
-                                id="id5">
-                    <f:validator binding="#{row.bindings.CreationDate.validator}"/>
-                    <af:convertDateTime pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreationDate.format}"/>
-                  </af:inputDate>
-                </af:column>
-                <af:column sortProperty="LastUpdatedBy" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.label}"
-                           id="c8">
-                  <af:inputText value="#{row.bindings.LastUpdatedBy.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.tooltip}"
-                                id="it20">
-                    <f:validator binding="#{row.bindings.LastUpdatedBy.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.LastUpdatedBy.format}"/>
-                  </af:inputText>
-                </af:column>
-                <af:column sortProperty="CreatedBy" filterable="true"
-                           sortable="true"
-                           headerText="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.label}"
-                           id="c7">
-                  <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
-                                label="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.label}"
-                                required="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.mandatory}"
-                                columns="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.displayWidth}"
-                                maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.precision}"
-                                shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.tooltip}"
-                                id="it22">
-                    <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
-                    <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.CreatedBy.format}"/>
                   </af:inputText>
                 </af:column>
               </af:table>

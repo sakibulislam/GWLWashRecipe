@@ -8,68 +8,79 @@
     <iterator Binds="MjGwlRecipeMasterVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="MjGwlRecipeMasterVO1Iterator"/>
-    <searchRegion Binds="MjGwlRecipeMasterVO1Iterator" Criteria=""
-                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  id="MjGwlRecipeMasterVO1Query"/>
     <iterator Binds="MjGwlRecipeDetailVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="MjGwlRecipeDetailVO1Iterator"/>
     <searchRegion Binds="MjGwlRecipeDetailVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="MjGwlRecipeDetailVO1Query"/>
+    <searchRegion Binds="MjGwlRecipeMasterVO1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="MjGwlRecipeMasterVO1Query"/>
+    <invokeAction id="setSessionValueId" Binds="setSessionValues"
+                  Refresh="always"/>
   </executables>
   <bindings>
-    <tree IterBinding="MjGwlRecipeMasterVO1Iterator" id="MjGwlRecipeMasterVO1">
-      <nodeDefinition DefName="model.views.MjGwlRecipeMasterVO"
-                      Name="MjGwlRecipeMasterVO10">
-        <AttrNames>
-          <Item Value="RecipeId"/>
-          <Item Value="StyleId"/>
-          <Item Value="Po"/>
-          <Item Value="Country"/>
-          <Item Value="Factory"/>
-          <Item Value="MachineNo"/>
-          <Item Value="OperatorId"/>
-          <Item Value="OperatorShift"/>
-          <Item Value="GmtCategory"/>
-          <Item Value="GmtType"/>
-          <Item Value="AvgWeight"/>
-          <Item Value="TotalWeight"/>
-          <Item Value="LotQty"/>
-          <Item Value="Tdate"/>
-          <Item Value="Status"/>
-          <Item Value="CreationDate"/>
-          <Item Value="CreatedBy"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="LastUpdateDate"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="MjGwlRecipeMasterVO1Iterator" id="Delete"
             RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
             DataControl="AppModuleDataControl"/>
+    <action IterBinding="MjGwlRecipeMasterVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
     <tree IterBinding="MjGwlRecipeDetailVO1Iterator" id="MjGwlRecipeDetailVO1">
       <nodeDefinition DefName="model.views.MjGwlRecipeDetailVO"
                       Name="MjGwlRecipeDetailVO10">
         <AttrNames>
-          <Item Value="RecipeId"/>
-          <Item Value="LineId"/>
-          <Item Value="WashTypeId"/>
-          <Item Value="ChemicalId"/>
+          <Item Value="Serial"/>
+          <Item Value="WashType"/>
+          <Item Value="WaterAmount"/>
+          <Item Value="ChemicalDesc"/>
           <Item Value="ChemicalQty"/>
+          <Item Value="ChemicalRatio"/>
           <Item Value="Temperature"/>
           <Item Value="MachineRpm"/>
           <Item Value="Remarks"/>
-          <Item Value="Status"/>
-          <Item Value="LastUpdateDate"/>
-          <Item Value="CreationDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="CreatedBy"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="MjGwlRecipeMasterVO1Iterator" id="CreateInsert"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="MjGwlRecipeMasterVO1Iterator" id="MjGwlRecipeMasterVO1">
+      <nodeDefinition DefName="model.views.MjGwlRecipeMasterVO"
+                      Name="MjGwlRecipeMasterVO10">
+        <AttrNames>
+          <Item Value="RecipeDocNo"/>
+          <Item Value="Buyer"/>
+          <Item Value="Season"/>
+          <Item Value="Style"/>
+          <Item Value="Wash"/>
+          <Item Value="Color"/>
+          <Item Value="MachineNo"/>
+          <Item Value="OperatorName"/>
+          <Item Value="OperatorShift"/>
+          <Item Value="GmtCategory"/>
+          <Item Value="GmtType"/>
+          <Item Value="AvgWeight"/>
+          <Item Value="LotQty"/>
+          <Item Value="TotalWeight"/>
+          <Item Value="Tdate"/>
+          <Item Value="Po"/>
+          <Item Value="Country"/>
+          <Item Value="Factory"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="setSessionValues"
+                  InstanceName="AppModuleDataControl.dataProvider"
+                  DataControl="AppModuleDataControl" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="setSessionValues"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="orgId" NDValue="#{viewScope.OrgId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="userId" NDValue="#{viewScope.UserId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respId" NDValue="#{viewScope.RespId}"
+                 NDType="java.lang.String"/>
+      <NamedData NDName="respAppl" NDValue="#{viewScope.RespAppId}"
+                 NDType="java.lang.String"/>
+    </methodAction>
   </bindings>
 </pageDefinition>

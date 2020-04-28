@@ -1,5 +1,11 @@
 package model.entities;
 
+import java.sql.SQLException;
+
+import java.util.Map;
+
+import oracle.adf.share.ADFContext;
+
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.RowIterator;
@@ -212,6 +218,96 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
             }
         }
         ,
+        BuyerId {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getBuyerId();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setBuyerId((Number)value);
+            }
+        }
+        ,
+        Color {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getColor();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setColor((String)value);
+            }
+        }
+        ,
+        RecipeDocNo {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getRecipeDocNo();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setRecipeDocNo((String)value);
+            }
+        }
+        ,
+        Style {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getStyle();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setStyle((String)value);
+            }
+        }
+        ,
+        Wash {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getWash();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setWash((String)value);
+            }
+        }
+        ,
+        Buyer {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getBuyer();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setBuyer((String)value);
+            }
+        }
+        ,
+        Season {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getSeason();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setSeason((String)value);
+            }
+        }
+        ,
+        OrgId {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getOrgId();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setOrgId((Number)value);
+            }
+        }
+        ,
+        OperatorName {
+            public Object get(MjGwlRecipeMasterEOImpl obj) {
+                return obj.getOperatorName();
+            }
+
+            public void put(MjGwlRecipeMasterEOImpl obj, Object value) {
+                obj.setOperatorName((String)value);
+            }
+        }
+        ,
         MjGwlRecipeDetailEO {
             public Object get(MjGwlRecipeMasterEOImpl obj) {
                 return obj.getMjGwlRecipeDetailEO();
@@ -248,6 +344,8 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
             return vals;
         }
     }
+
+
     public static final int RECIPEID = AttributesEnum.RecipeId.index();
     public static final int STYLEID = AttributesEnum.StyleId.index();
     public static final int PO = AttributesEnum.Po.index();
@@ -267,12 +365,32 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
     public static final int LASTUPDATEDATE = AttributesEnum.LastUpdateDate.index();
+    public static final int BUYERID = AttributesEnum.BuyerId.index();
+    public static final int COLOR = AttributesEnum.Color.index();
+    public static final int RECIPEDOCNO = AttributesEnum.RecipeDocNo.index();
+    public static final int STYLE = AttributesEnum.Style.index();
+    public static final int WASH = AttributesEnum.Wash.index();
+    public static final int BUYER = AttributesEnum.Buyer.index();
+    public static final int SEASON = AttributesEnum.Season.index();
+    public static final int ORGID = AttributesEnum.OrgId.index();
+    public static final int OPERATORNAME = AttributesEnum.OperatorName.index();
     public static final int MJGWLRECIPEDETAILEO = AttributesEnum.MjGwlRecipeDetailEO.index();
 
     /**
      * This is the default constructor (do not remove).
      */
     public MjGwlRecipeMasterEOImpl() {
+    }
+
+
+    /**
+     * @return the definition object for this instance class.
+     */
+    public static synchronized EntityDefImpl getDefinitionObject() {
+        if (mDefinitionObject == null) {
+            mDefinitionObject = EntityDefImpl.findDefObject("model.entities.MjGwlRecipeMasterEO");
+        }
+        return mDefinitionObject;
     }
 
     /**
@@ -580,6 +698,150 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
     }
 
     /**
+     * Gets the attribute value for BuyerId, using the alias name BuyerId.
+     * @return the BuyerId
+     */
+    public Number getBuyerId() {
+        return (Number)getAttributeInternal(BUYERID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for BuyerId.
+     * @param value value to set the BuyerId
+     */
+    public void setBuyerId(Number value) {
+        setAttributeInternal(BUYERID, value);
+    }
+
+    /**
+     * Gets the attribute value for Color, using the alias name Color.
+     * @return the Color
+     */
+    public String getColor() {
+        return (String)getAttributeInternal(COLOR);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Color.
+     * @param value value to set the Color
+     */
+    public void setColor(String value) {
+        setAttributeInternal(COLOR, value);
+    }
+
+    /**
+     * Gets the attribute value for RecipeDocNo, using the alias name RecipeDocNo.
+     * @return the RecipeDocNo
+     */
+    public String getRecipeDocNo() {
+        return (String)getAttributeInternal(RECIPEDOCNO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for RecipeDocNo.
+     * @param value value to set the RecipeDocNo
+     */
+    public void setRecipeDocNo(String value) {
+        setAttributeInternal(RECIPEDOCNO, value);
+    }
+
+    /**
+     * Gets the attribute value for Style, using the alias name Style.
+     * @return the Style
+     */
+    public String getStyle() {
+        return (String)getAttributeInternal(STYLE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Style.
+     * @param value value to set the Style
+     */
+    public void setStyle(String value) {
+        setAttributeInternal(STYLE, value);
+    }
+
+    /**
+     * Gets the attribute value for Wash, using the alias name Wash.
+     * @return the Wash
+     */
+    public String getWash() {
+        return (String)getAttributeInternal(WASH);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Wash.
+     * @param value value to set the Wash
+     */
+    public void setWash(String value) {
+        setAttributeInternal(WASH, value);
+    }
+
+    /**
+     * Gets the attribute value for Buyer, using the alias name Buyer.
+     * @return the Buyer
+     */
+    public String getBuyer() {
+        return (String)getAttributeInternal(BUYER);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Buyer.
+     * @param value value to set the Buyer
+     */
+    public void setBuyer(String value) {
+        setAttributeInternal(BUYER, value);
+    }
+
+    /**
+     * Gets the attribute value for Season, using the alias name Season.
+     * @return the Season
+     */
+    public String getSeason() {
+        return (String)getAttributeInternal(SEASON);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for Season.
+     * @param value value to set the Season
+     */
+    public void setSeason(String value) {
+        setAttributeInternal(SEASON, value);
+    }
+
+    /**
+     * Gets the attribute value for OrgId, using the alias name OrgId.
+     * @return the OrgId
+     */
+    public Number getOrgId() {
+        return (Number)getAttributeInternal(ORGID);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OrgId.
+     * @param value value to set the OrgId
+     */
+    public void setOrgId(Number value) {
+        setAttributeInternal(ORGID, value);
+    }
+
+    /**
+     * Gets the attribute value for OperatorName, using the alias name OperatorName.
+     * @return the OperatorName
+     */
+    public String getOperatorName() {
+        return (String)getAttributeInternal(OPERATORNAME);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for OperatorName.
+     * @param value value to set the OperatorName
+     */
+    public void setOperatorName(String value) {
+        setAttributeInternal(OPERATORNAME, value);
+    }
+
+    /**
      * getAttrInvokeAccessor: generated method. Do not modify.
      * @param index the index identifying the attribute
      * @param attrDef the attribute
@@ -619,6 +881,7 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
         return (RowIterator)getAttributeInternal(MJGWLRECIPEDETAILEO);
     }
 
+
     /**
      * @param recipeId key constituent
 
@@ -626,16 +889,6 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
      */
     public static Key createPrimaryKey(Number recipeId) {
         return new Key(new Object[]{recipeId});
-    }
-
-    /**
-     * @return the definition object for this instance class.
-     */
-    public static synchronized EntityDefImpl getDefinitionObject() {
-        if (mDefinitionObject == null) {
-            mDefinitionObject = EntityDefImpl.findDefObject("model.entities.MjGwlRecipeMasterEO");
-        }
-        return mDefinitionObject;
     }
 
     /**
@@ -651,6 +904,7 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
             oracle.jbo.domain.Number sVal = s.getSequenceNumber();
             setRecipeId(sVal);
             System.out.println("Recently Created Recipe Id: " + sVal);
+            setTdate((Date)Date.getCurrentDate());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -681,12 +935,49 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
         }
     }
 
-    /**
-     * Custom DML update/insert/delete logic here.
-     * @param operation the operation type
-     * @param e the transaction event
-     */
-    protected void doDML(int operation, TransactionEvent e) {
-        super.doDML(operation, e);
+     /**
+      * Custom DML update/insert/delete logic here.
+      * @param operation the operation type
+      * @param e the transaction event
+      */
+    protected void doDML(int operation, TransactionEvent e){
+         System.out.println("Enter in doDML....");
+         Map sessionScope = ADFContext.getCurrent().getSessionScope();
+         String user = (String)sessionScope.get("userId");
+
+         if (operation == DML_INSERT) {
+             try {
+                 setRecipeDocNo(getSrNoString());
+                 setCreationDate((Date)Date.getCurrentDate());
+                 setCreatedBy(new oracle.jbo.domain.Number(user));
+             } catch (SQLException f) {
+                 System.out.println(f.getMessage());
+             }
+         } else if (DML_UPDATE == operation) {
+             try {
+                 setLastUpdateDate((Date)Date.getCurrentDate());
+                 setLastUpdatedBy(new oracle.jbo.domain.Number(user));
+             } catch (SQLException f) {
+                 System.out.println(f.getMessage());
+             }
+         }
+         super.doDML(operation, e);
+    }
+                      
+    public String getSrNoString() {
+         String srno = null;
+         String stmt =
+             "BEGIN :1 := mnj_mfg_doc_no_pkg.gwl_wash_recipe_doc; end;";
+         java.sql.CallableStatement cs =
+             getDBTransaction().createCallableStatement(stmt, 1);
+         try {
+             cs.registerOutParameter(1, oracle.jdbc.OracleTypes.VARCHAR);
+             cs.execute();
+             srno = cs.getString(1);
+             cs.close();
+         } catch (Exception e) {
+             e.printStackTrace();
+         }
+         return srno;
     }
 }

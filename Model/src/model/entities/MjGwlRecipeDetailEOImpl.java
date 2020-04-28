@@ -151,6 +151,46 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
             }
         }
         ,
+        WashType {
+            public Object get(MjGwlRecipeDetailEOImpl obj) {
+                return obj.getWashType();
+            }
+
+            public void put(MjGwlRecipeDetailEOImpl obj, Object value) {
+                obj.setWashType((String)value);
+            }
+        }
+        ,
+        WaterAmount {
+            public Object get(MjGwlRecipeDetailEOImpl obj) {
+                return obj.getWaterAmount();
+            }
+
+            public void put(MjGwlRecipeDetailEOImpl obj, Object value) {
+                obj.setWaterAmount((Number)value);
+            }
+        }
+        ,
+        ChemicalDesc {
+            public Object get(MjGwlRecipeDetailEOImpl obj) {
+                return obj.getChemicalDesc();
+            }
+
+            public void put(MjGwlRecipeDetailEOImpl obj, Object value) {
+                obj.setChemicalDesc((String)value);
+            }
+        }
+        ,
+        ChemicalRatio {
+            public Object get(MjGwlRecipeDetailEOImpl obj) {
+                return obj.getChemicalRatio();
+            }
+
+            public void put(MjGwlRecipeDetailEOImpl obj, Object value) {
+                obj.setChemicalRatio((Number)value);
+            }
+        }
+        ,
         MjGwlRecipeMasterEO {
             public Object get(MjGwlRecipeDetailEOImpl obj) {
                 return obj.getMjGwlRecipeMasterEO();
@@ -188,6 +228,7 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
         }
     }
 
+
     public static final int RECIPEID = AttributesEnum.RecipeId.index();
     public static final int LINEID = AttributesEnum.LineId.index();
     public static final int WASHTYPEID = AttributesEnum.WashTypeId.index();
@@ -201,6 +242,10 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
     public static final int CREATEDBY = AttributesEnum.CreatedBy.index();
     public static final int CREATIONDATE = AttributesEnum.CreationDate.index();
     public static final int LASTUPDATEDBY = AttributesEnum.LastUpdatedBy.index();
+    public static final int WASHTYPE = AttributesEnum.WashType.index();
+    public static final int WATERAMOUNT = AttributesEnum.WaterAmount.index();
+    public static final int CHEMICALDESC = AttributesEnum.ChemicalDesc.index();
+    public static final int CHEMICALRATIO = AttributesEnum.ChemicalRatio.index();
     public static final int MJGWLRECIPEMASTEREO = AttributesEnum.MjGwlRecipeMasterEO.index();
 
     /**
@@ -208,6 +253,7 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
      */
     public MjGwlRecipeDetailEOImpl() {
     }
+
 
     /**
      * @return the definition object for this instance class.
@@ -425,6 +471,71 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
      */
     public void setLastUpdatedBy(Number value) {
         setAttributeInternal(LASTUPDATEDBY, value);
+    }
+
+
+    /**
+     * Gets the attribute value for WashType, using the alias name WashType.
+     * @return the WashType
+     */
+    public String getWashType() {
+        return (String)getAttributeInternal(WASHTYPE);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for WashType.
+     * @param value value to set the WashType
+     */
+    public void setWashType(String value) {
+        setAttributeInternal(WASHTYPE, value);
+    }
+
+    /**
+     * Gets the attribute value for WaterAmount, using the alias name WaterAmount.
+     * @return the WaterAmount
+     */
+    public Number getWaterAmount() {
+        return (Number)getAttributeInternal(WATERAMOUNT);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for WaterAmount.
+     * @param value value to set the WaterAmount
+     */
+    public void setWaterAmount(Number value) {
+        setAttributeInternal(WATERAMOUNT, value);
+    }
+
+    /**
+     * Gets the attribute value for ChemicalDesc, using the alias name ChemicalDesc.
+     * @return the ChemicalDesc
+     */
+    public String getChemicalDesc() {
+        return (String)getAttributeInternal(CHEMICALDESC);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChemicalDesc.
+     * @param value value to set the ChemicalDesc
+     */
+    public void setChemicalDesc(String value) {
+        setAttributeInternal(CHEMICALDESC, value);
+    }
+
+    /**
+     * Gets the attribute value for ChemicalRatio, using the alias name ChemicalRatio.
+     * @return the ChemicalRatio
+     */
+    public Number getChemicalRatio() {
+        return (Number)getAttributeInternal(CHEMICALRATIO);
+    }
+
+    /**
+     * Sets <code>value</code> as the attribute value for ChemicalRatio.
+     * @param value value to set the ChemicalRatio
+     */
+    public void setChemicalRatio(Number value) {
+        setAttributeInternal(CHEMICALRATIO, value);
     }
 
     /**

@@ -24,7 +24,16 @@
        MjGwlRecipeMasterEO.CREATION_DATE, 
        MjGwlRecipeMasterEO.CREATED_BY, 
        MjGwlRecipeMasterEO.LAST_UPDATED_BY, 
-       MjGwlRecipeMasterEO.LAST_UPDATE_DATE"
+       MjGwlRecipeMasterEO.LAST_UPDATE_DATE, 
+       MjGwlRecipeMasterEO.WASH, 
+       MjGwlRecipeMasterEO.STYLE, 
+       MjGwlRecipeMasterEO.RECIPE_DOC_NO, 
+       MjGwlRecipeMasterEO.COLOR, 
+       MjGwlRecipeMasterEO.BUYER_ID, 
+       MjGwlRecipeMasterEO.BUYER, 
+       MjGwlRecipeMasterEO.SEASON, 
+       MjGwlRecipeMasterEO.ORG_ID, 
+       MjGwlRecipeMasterEO.OPERATOR_NAME"
   FromList="MJ_GWL_RECIPE_MASTER MjGwlRecipeMasterEO"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -33,6 +42,268 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>
+  <ViewAccessor
+    Name="BuyerLOV1"
+    ViewObjectName="model.lov.BuyerLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ChemicalAmountLOV1"
+    ViewObjectName="model.lov.ChemicalAmountLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ChemicalLOV1"
+    ViewObjectName="model.lov.ChemicalLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ColorLOV1"
+    ViewObjectName="model.lov.ColorLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="GMTCategoryLOV1"
+    ViewObjectName="model.lov.GMTCategoryLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="GMTTypeLOV1"
+    ViewObjectName="model.lov.GMTTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MachineNoLOV1"
+    ViewObjectName="model.lov.MachineNoLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MachineRPMLOV1"
+    ViewObjectName="model.lov.MachineRPMLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OrgLOV1"
+    ViewObjectName="model.lov.OrgLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RecipeTempLOV1"
+    ViewObjectName="model.lov.RecipeTempLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SeasonLOV1"
+    ViewObjectName="model.lov.SeasonLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ShiftLOV1"
+    ViewObjectName="model.lov.ShiftLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="StyleLOV1"
+    ViewObjectName="model.lov.StyleLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashLOV1"
+    ViewObjectName="model.lov.WashLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WashTypeLOV1"
+    ViewObjectName="model.lov.WashTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WaterAmountLOV1"
+    ViewObjectName="model.lov.WaterAmountLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Buyer"
+    ListVOName="BuyerLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Buyer_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Buyer"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="BuyerId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerName"/>
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="CustomerName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Season"
+    ListVOName="SeasonLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Season_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Season"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Style"
+    ListVOName="StyleLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Style_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Style"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Style"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Style"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Color"
+    ListVOName="ColorLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Color_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Color"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="FinishGoodsColor"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="FinishGoodsColor"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Wash"
+    ListVOName="WashLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Wash_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Wash"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Wash"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Factory"
+    ListVOName="OrgLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Factory_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Factory"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OrgId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OrganizationCode"/>
+      <Item Value="OperatingUnit"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OrganizationCode"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MachineNo"
+    ListVOName="MachineNoLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_MachineNo_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MachineNo"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MachineNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MachineNo"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OperatorShift"
+    ListVOName="ShiftLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_OperatorShift_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OperatorShift"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Shift"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Shift"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GmtCategory"
+    ListVOName="GMTCategoryLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_GmtCategory_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GmtCategory"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="GmtCategory"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="GmtCategory"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_GmtType"
+    ListVOName="GMTTypeLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_GmtType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="GmtType"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="GmtType"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="GmtType"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="MjGwlRecipeMasterEO"
     Entity="model.entities.MjGwlRecipeMasterEO"/>
@@ -66,13 +337,29 @@
     PrecisionRule="true"
     EntityAttrName="Factory"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="FACTORY"/>
+    AliasName="FACTORY"
+    LOVName="LOV_Factory">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MachineNo"
     PrecisionRule="true"
     EntityAttrName="MachineNo"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="MACHINE_NO"/>
+    AliasName="MACHINE_NO"
+    LOVName="LOV_MachineNo">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OperatorId"
     PrecisionRule="true"
@@ -84,19 +371,43 @@
     PrecisionRule="true"
     EntityAttrName="OperatorShift"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="OPERATOR_SHIFT"/>
+    AliasName="OPERATOR_SHIFT"
+    LOVName="LOV_OperatorShift">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GmtCategory"
     PrecisionRule="true"
     EntityAttrName="GmtCategory"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="GMT_CATEGORY"/>
+    AliasName="GMT_CATEGORY"
+    LOVName="LOV_GmtCategory">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="GmtType"
     PrecisionRule="true"
     EntityAttrName="GmtType"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="GMT_TYPE"/>
+    AliasName="GMT_TYPE"
+    LOVName="LOV_GmtType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AvgWeight"
     PrecisionRule="true"
@@ -151,6 +462,100 @@
     EntityAttrName="LastUpdateDate"
     EntityUsage="MjGwlRecipeMasterEO"
     AliasName="LAST_UPDATE_DATE"/>
+  <ViewAttribute
+    Name="Wash"
+    PrecisionRule="true"
+    EntityAttrName="Wash"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="WASH"
+    LOVName="LOV_Wash">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Style"
+    PrecisionRule="true"
+    EntityAttrName="Style"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="STYLE"
+    LOVName="LOV_Style">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="RecipeDocNo"
+    PrecisionRule="true"
+    EntityAttrName="RecipeDocNo"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="RECIPE_DOC_NO"/>
+  <ViewAttribute
+    Name="Color"
+    PrecisionRule="true"
+    EntityAttrName="Color"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="COLOR"
+    LOVName="LOV_Color">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="BuyerId"
+    PrecisionRule="true"
+    EntityAttrName="BuyerId"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="BUYER_ID"/>
+  <ViewAttribute
+    Name="Buyer"
+    PrecisionRule="true"
+    EntityAttrName="Buyer"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="BUYER"
+    LOVName="LOV_Buyer">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Season"
+    PrecisionRule="true"
+    EntityAttrName="Season"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="SEASON"
+    LOVName="LOV_Season">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OrgId"
+    PrecisionRule="true"
+    EntityAttrName="OrgId"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="ORG_ID"/>
+  <ViewAttribute
+    Name="OperatorName"
+    PrecisionRule="true"
+    EntityAttrName="OperatorName"
+    EntityUsage="MjGwlRecipeMasterEO"
+    AliasName="OPERATOR_NAME"/>
   <ViewLinkAccessor
     Name="MjGwlRecipeDetailVO"
     ViewLink="model.views.MjGwlRecipeDetailR01Link"

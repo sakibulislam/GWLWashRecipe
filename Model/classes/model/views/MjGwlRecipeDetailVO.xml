@@ -18,7 +18,11 @@
        MjGwlRecipeDetailEO.LAST_UPDATE_DATE, 
        MjGwlRecipeDetailEO.CREATION_DATE, 
        MjGwlRecipeDetailEO.LAST_UPDATED_BY, 
-       MjGwlRecipeDetailEO.CREATED_BY"
+       MjGwlRecipeDetailEO.CREATED_BY, 
+       MjGwlRecipeDetailEO.WASH_TYPE, 
+       MjGwlRecipeDetailEO.WATER_AMOUNT, 
+       MjGwlRecipeDetailEO.CHEMICAL_DESC, 
+       MjGwlRecipeDetailEO.CHEMICAL_RATIO"
   FromList="MJ_GWL_RECIPE_DETAIL MjGwlRecipeDetailEO"
   BindingStyle="OracleName"
   CustomQuery="false"
@@ -27,6 +31,152 @@
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
   </DesignTime>
+  <ViewAccessor
+    Name="WashTypeLOV1"
+    ViewObjectName="model.lov.WashTypeLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="WaterAmountLOV1"
+    ViewObjectName="model.lov.WaterAmountLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ChemicalLOV1"
+    ViewObjectName="model.lov.ChemicalLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ChemicalAmountLOV1"
+    ViewObjectName="model.lov.ChemicalAmountLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="RecipeTempLOV1"
+    ViewObjectName="model.lov.RecipeTempLOV"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="MachineRPMLOV1"
+    ViewObjectName="model.lov.MachineRPMLOV"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_WashType"
+    ListVOName="WashTypeLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WashType_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="WashTypeId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WashType"/>
+      <Item Value="Id"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WashType"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_WaterAmount"
+    ListVOName="WaterAmountLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_WaterAmount_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="WaterAmount"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="WaterAmount"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="WaterAmount"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ChemicalDesc"
+    ListVOName="ChemicalLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ChemicalDesc_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChemicalDesc"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="ChemicalId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ChemicalItemDesc"/>
+      <Item Value="ChemicalItemId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ChemicalItemDesc"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ChemicalQty"
+    ListVOName="ChemicalAmountLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_ChemicalQty_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ChemicalQty"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ChemicalAmount"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ChemicalAmount"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_Temperature"
+    ListVOName="RecipeTempLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_Temperature_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Temperature"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RecipeTemp"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RecipeTemp"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_MachineRpm"
+    ListVOName="MachineRPMLOV1"
+    ListRangeSize="10"
+    NullValueFlag="none"
+    NullValueId="LOV_MachineRpm_LOVUIHints_NullValueId"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="MachineRpm"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="MachineRpm"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="MachineRpm"/>
+    </AttrArray>
+    <DisplayCriteria
+      Hint="showAndExecute"/>
+  </ListBinding>
   <EntityUsage
     Name="MjGwlRecipeDetailEO"
     Entity="model.entities.MjGwlRecipeDetailEO"/>
@@ -60,19 +210,43 @@
     PrecisionRule="true"
     EntityAttrName="ChemicalQty"
     EntityUsage="MjGwlRecipeDetailEO"
-    AliasName="CHEMICAL_QTY"/>
+    AliasName="CHEMICAL_QTY"
+    LOVName="LOV_ChemicalQty">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Temperature"
     PrecisionRule="true"
     EntityAttrName="Temperature"
     EntityUsage="MjGwlRecipeDetailEO"
-    AliasName="TEMPERATURE"/>
+    AliasName="TEMPERATURE"
+    LOVName="LOV_Temperature">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="MachineRpm"
     PrecisionRule="true"
     EntityAttrName="MachineRpm"
     EntityUsage="MjGwlRecipeDetailEO"
-    AliasName="MACHINE_RPM"/>
+    AliasName="MACHINE_RPM"
+    LOVName="LOV_MachineRpm">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Remarks"
     PrecisionRule="true"
@@ -109,4 +283,61 @@
     EntityAttrName="CreatedBy"
     EntityUsage="MjGwlRecipeDetailEO"
     AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="WashType"
+    PrecisionRule="true"
+    EntityAttrName="WashType"
+    EntityUsage="MjGwlRecipeDetailEO"
+    AliasName="WASH_TYPE"
+    LOVName="LOV_WashType">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WaterAmount"
+    PrecisionRule="true"
+    EntityAttrName="WaterAmount"
+    EntityUsage="MjGwlRecipeDetailEO"
+    AliasName="WATER_AMOUNT"
+    LOVName="LOV_WaterAmount">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChemicalDesc"
+    PrecisionRule="true"
+    EntityAttrName="ChemicalDesc"
+    EntityUsage="MjGwlRecipeDetailEO"
+    AliasName="CHEMICAL_DESC"
+    LOVName="LOV_ChemicalDesc">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="input_text_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ChemicalRatio"
+    PrecisionRule="true"
+    EntityAttrName="ChemicalRatio"
+    EntityUsage="MjGwlRecipeDetailEO"
+    AliasName="CHEMICAL_RATIO"/>
+  <ViewAttribute
+    Name="Serial"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR"/>
 </ViewObject>

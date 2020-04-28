@@ -22,6 +22,14 @@
     </DesignTime>
   </Containee>
   <Containee
+    Name="lov"
+    PackageName="model.lov"
+    ObjectType="JboPackage">
+    <DesignTime>
+      <Attr Name="_VO" Value="true"/>
+    </DesignTime>
+  </Containee>
+  <Containee
     Name="services"
     PackageName="model.services"
     ObjectType="JboPackage">

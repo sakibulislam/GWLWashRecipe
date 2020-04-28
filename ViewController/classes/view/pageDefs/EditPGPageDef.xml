@@ -5,17 +5,43 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
-    <iterator Binds="MjGwlRecipeMasterVO1" RangeSize="25"
-              DataControl="AppModuleDataControl"
-              id="MjGwlRecipeMasterVO1Iterator"/>
     <iterator Binds="MjGwlRecipeDetailVO1" RangeSize="25"
               DataControl="AppModuleDataControl"
               id="MjGwlRecipeDetailVO1Iterator"/>
     <searchRegion Binds="MjGwlRecipeDetailVO1Iterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   id="MjGwlRecipeDetailVO1Query"/>
+    <iterator Binds="MjGwlRecipeMasterVO1" RangeSize="25"
+              DataControl="AppModuleDataControl"
+              id="MjGwlRecipeMasterVO1Iterator"/>
   </executables>
   <bindings>
+    <action IterBinding="MjGwlRecipeDetailVO1Iterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AppModuleDataControl"/>
+    <action IterBinding="MjGwlRecipeDetailVO1Iterator" id="CreateInsert"
+            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="MjGwlRecipeDetailVO1Iterator" id="MjGwlRecipeDetailVO1">
+      <nodeDefinition DefName="model.views.MjGwlRecipeDetailVO"
+                      Name="MjGwlRecipeDetailVO10">
+        <AttrNames>
+          <Item Value="WashType"/>
+          <Item Value="WaterAmount"/>
+          <Item Value="ChemicalDesc"/>
+          <Item Value="ChemicalQty"/>
+          <Item Value="ChemicalRatio"/>
+          <Item Value="Temperature"/>
+          <Item Value="MachineRpm"/>
+          <Item Value="Remarks"/>
+          <Item Value="Serial"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Factory" id="Factory"/>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Buyer" id="Buyer"/>
     <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="RecipeId">
       <AttrNames>
         <Item Value="RecipeId"/>
@@ -36,38 +62,19 @@
         <Item Value="Country"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="Factory">
-      <AttrNames>
-        <Item Value="Factory"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="MachineNo">
-      <AttrNames>
-        <Item Value="MachineNo"/>
-      </AttrNames>
-    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_MachineNo" id="MachineNo"/>
     <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="OperatorId">
       <AttrNames>
         <Item Value="OperatorId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator"
-                     id="OperatorShift">
-      <AttrNames>
-        <Item Value="OperatorShift"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator"
-                     id="GmtCategory">
-      <AttrNames>
-        <Item Value="GmtCategory"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="GmtType">
-      <AttrNames>
-        <Item Value="GmtType"/>
-      </AttrNames>
-    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_OperatorShift" id="OperatorShift"/>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_GmtCategory" id="GmtCategory"/>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_GmtType" id="GmtType"/>
     <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="AvgWeight">
       <AttrNames>
         <Item Value="AvgWeight"/>
@@ -117,31 +124,35 @@
         <Item Value="LastUpdateDate"/>
       </AttrNames>
     </attributeValues>
-    <tree IterBinding="MjGwlRecipeDetailVO1Iterator" id="MjGwlRecipeDetailVO1">
-      <nodeDefinition DefName="model.views.MjGwlRecipeDetailVO"
-                      Name="MjGwlRecipeDetailVO10">
-        <AttrNames>
-          <Item Value="RecipeId"/>
-          <Item Value="LineId"/>
-          <Item Value="WashTypeId"/>
-          <Item Value="ChemicalId"/>
-          <Item Value="ChemicalQty"/>
-          <Item Value="Temperature"/>
-          <Item Value="MachineRpm"/>
-          <Item Value="Remarks"/>
-          <Item Value="Status"/>
-          <Item Value="LastUpdateDate"/>
-          <Item Value="CreationDate"/>
-          <Item Value="LastUpdatedBy"/>
-          <Item Value="CreatedBy"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <action IterBinding="MjGwlRecipeDetailVO1Iterator" id="Delete"
-            RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
-            DataControl="AppModuleDataControl"/>
-    <action IterBinding="MjGwlRecipeDetailVO1Iterator" id="CreateInsert"
-            RequiresUpdateModel="true" Action="createInsertRow"/>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Wash" id="Wash"/>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Style" id="Style"/>
+    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator"
+                     id="RecipeDocNo">
+      <AttrNames>
+        <Item Value="RecipeDocNo"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Color" id="Color"/>
+    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="BuyerId">
+      <AttrNames>
+        <Item Value="BuyerId"/>
+      </AttrNames>
+    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_Season" id="Season"/>
+    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator" id="OrgId">
+      <AttrNames>
+        <Item Value="OrgId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator"
+                     id="OperatorName">
+      <AttrNames>
+        <Item Value="OperatorName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
