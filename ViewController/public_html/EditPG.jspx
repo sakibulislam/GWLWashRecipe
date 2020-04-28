@@ -25,7 +25,7 @@
                           maximumLength="#{bindings.RecipeDocNo.hints.precision}"
                           shortDesc="#{bindings.RecipeDocNo.hints.tooltip}"
                           id="it5" readOnly="true"
-                          contentStyle="width:150px;">
+                          contentStyle="width:150px;font-weight:bold;">
               <f:validator binding="#{bindings.RecipeDocNo.validator}"/>
             </af:inputText>
             <af:inputComboboxListOfValues id="buyerId"
