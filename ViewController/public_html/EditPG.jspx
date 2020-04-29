@@ -36,8 +36,9 @@
                                           columns="#{bindings.Buyer.hints.displayWidth}"
                                           shortDesc="#{bindings.Buyer.hints.tooltip}"
                                           contentStyle="width:150px;"
-                                          required="true">
+                                          required="true" autoSubmit="true">
               <f:validator binding="#{bindings.Buyer.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Buyer.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="seasonId"
                                           popupTitle="Search and Select: #{bindings.Season.hints.label}"
@@ -47,8 +48,9 @@
                                           columns="#{bindings.Season.hints.displayWidth}"
                                           shortDesc="#{bindings.Season.hints.tooltip}"
                                           contentStyle="width:150px;"
-                                          required="true">
+                                          required="true" autoSubmit="true">
               <f:validator binding="#{bindings.Season.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Season.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="styleId"
                                           popupTitle="Search and Select: #{bindings.Style.hints.label}"
@@ -58,8 +60,10 @@
                                           required="#{bindings.Style.hints.mandatory}"
                                           columns="#{bindings.Style.hints.displayWidth}"
                                           shortDesc="#{bindings.Style.hints.tooltip}"
-                                          contentStyle="width:150px;">
+                                          contentStyle="width:150px;"
+                                          autoSubmit="true">
               <f:validator binding="#{bindings.Style.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Style.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="washId"
                                           popupTitle="Search and Select: #{bindings.Wash.hints.label}"
@@ -69,8 +73,10 @@
                                           required="#{bindings.Wash.hints.mandatory}"
                                           columns="#{bindings.Wash.hints.displayWidth}"
                                           shortDesc="#{bindings.Wash.hints.tooltip}"
-                                          contentStyle="width:150px;">
+                                          contentStyle="width:150px;"
+                                          autoSubmit="true">
               <f:validator binding="#{bindings.Wash.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Wash.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="colorId"
                                           popupTitle="Search and Select: #{bindings.Color.hints.label}"
@@ -82,6 +88,7 @@
                                           shortDesc="#{bindings.Color.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.Color.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Color.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.Po.inputValue}"
                           label="PO/Lot:"
@@ -111,6 +118,7 @@
                                           shortDesc="#{bindings.Factory.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.Factory.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.Factory.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="machineNoId"
                                           popupTitle="Search and Select: #{bindings.MachineNo.hints.label}"
@@ -122,6 +130,7 @@
                                           shortDesc="#{bindings.MachineNo.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.MachineNo.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.MachineNo.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.OperatorName.inputValue}"
                           required="#{bindings.OperatorName.hints.mandatory}"
@@ -143,6 +152,7 @@
                                           shortDesc="#{bindings.OperatorShift.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.OperatorShift.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.OperatorShift.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="gmtCategoryId"
                                           popupTitle="Search and Select: #{bindings.GmtCategory.hints.label}"
@@ -154,6 +164,7 @@
                                           shortDesc="#{bindings.GmtCategory.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.GmtCategory.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.GmtCategory.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="gmtTypeId"
                                           popupTitle="Search and Select: #{bindings.GmtType.hints.label}"
@@ -165,6 +176,7 @@
                                           shortDesc="#{bindings.GmtType.hints.tooltip}"
                                           contentStyle="width:150px;">
               <f:validator binding="#{bindings.GmtType.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.GmtType.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.AvgWeight.inputValue}"
                           label="Avg Weight/GMT:"
@@ -172,7 +184,10 @@
                           columns="#{bindings.AvgWeight.hints.displayWidth}"
                           maximumLength="#{bindings.AvgWeight.hints.precision}"
                           shortDesc="#{bindings.AvgWeight.hints.tooltip}"
-                          id="it14" contentStyle="width:150px;">
+                          id="it14" contentStyle="width:150px;"
+                          autoSubmit="true"
+                          binding="#{MainBean.avgWeightInputText}"
+                          valueChangeListener="#{MainBean.valueChanListAvgWeight}">
               <f:validator binding="#{bindings.AvgWeight.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.AvgWeight.format}"/>
@@ -183,7 +198,9 @@
                           columns="#{bindings.LotQty.hints.displayWidth}"
                           maximumLength="#{bindings.LotQty.hints.precision}"
                           shortDesc="#{bindings.LotQty.hints.tooltip}" id="it4"
-                          contentStyle="width:150px;">
+                          contentStyle="width:150px;" autoSubmit="true"
+                          binding="#{MainBean.lotQtyInputText}"
+                          valueChangeListener="#{MainBean.valueChanListLotQty}">
               <f:validator binding="#{bindings.LotQty.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.LotQty.format}"/>
@@ -194,7 +211,9 @@
                           columns="#{bindings.TotalWeight.hints.displayWidth}"
                           maximumLength="#{bindings.TotalWeight.hints.precision}"
                           shortDesc="#{bindings.TotalWeight.hints.tooltip}"
-                          id="it9" contentStyle="width:150px;">
+                          id="it9" contentStyle="width:150px;font-weight:bold;"
+                          binding="#{MainBean.totalWeightInputText}"
+                          readOnly="true" converter="javax.faces.Number">
               <f:validator binding="#{bindings.TotalWeight.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.TotalWeight.format}"/>
@@ -378,6 +397,7 @@
                                                 autoSubmit="true"
                                                 contentStyle="text-align:center;">
                     <f:validator binding="#{row.bindings.WashType.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.WashType.suggestedItems}"/>
                   </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="WaterAmount" filterable="true"
@@ -392,10 +412,13 @@
                                                 columns="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.displayWidth}"
                                                 shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.tooltip}"
                                                 autoSubmit="true"
-                                                contentStyle="text-align:center;width:50px;">
+                                                contentStyle="text-align:center;width:50px;"
+                                                binding="#{MainBean.waterAmount}"
+                                                valueChangeListener="#{MainBean.valueChanListWaterAmount}">
                     <f:validator binding="#{row.bindings.WaterAmount.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.WaterAmount.format}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.WaterAmount.suggestedItems}"/>
                   </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column headerText="Chemical Name"
@@ -412,6 +435,7 @@
                                         contentStyle="text-align:center;width:100%;"
                                         autoSubmit="true">
                     <f:validator binding="#{row.bindings.ChemicalDesc.validator}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.ChemicalDesc.suggestedItems}"/>
                   </af:inputListOfValues>
                 </af:column>
                 <af:column sortProperty="ChemicalDesc" filterable="true"
@@ -442,10 +466,13 @@
                                                 columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.displayWidth}"
                                                 shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.tooltip}"
                                                 autoSubmit="true"
-                                                contentStyle="text-align:center;width:50px;">
+                                                contentStyle="text-align:center;width:50px;"
+                                                binding="#{MainBean.chemicalAmount}"
+                                                valueChangeListener="#{MainBean.valueChanListChemAmount}">
                     <f:validator binding="#{row.bindings.ChemicalQty.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalQty.format}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.ChemicalQty.suggestedItems}"/>
                   </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="ChemicalRatio" filterable="true"
@@ -458,7 +485,9 @@
                                 columns="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.displayWidth}"
                                 maximumLength="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.precision}"
                                 shortDesc="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.tooltip}"
-                                id="it17" contentStyle="text-align:center;">
+                                id="it17"
+                                contentStyle="text-align:center;font-weight:bold;"
+                                readOnly="true" binding="#{MainBean.chemRatio}">
                     <f:validator binding="#{row.bindings.ChemicalRatio.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.format}"/>
@@ -480,6 +509,7 @@
                     <f:validator binding="#{row.bindings.Temperature.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.Temperature.format}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.Temperature.suggestedItems}"/>
                   </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="MachineRpm" filterable="true"
@@ -498,6 +528,7 @@
                     <f:validator binding="#{row.bindings.MachineRpm.validator}"/>
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.MjGwlRecipeDetailVO1.hints.MachineRpm.format}"/>
+                    <af:autoSuggestBehavior suggestedItems="#{row.bindings.MachineRpm.suggestedItems}"/>
                   </af:inputComboboxListOfValues>
                 </af:column>
                 <af:column sortProperty="Remarks" filterable="true"

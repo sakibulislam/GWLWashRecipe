@@ -6,30 +6,13 @@
   Name="MjGwlRecipeDetailVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  SelectList="MjGwlRecipeDetailEO.RECIPE_ID, 
-       MjGwlRecipeDetailEO.LINE_ID, 
-       MjGwlRecipeDetailEO.WASH_TYPE_ID, 
-       MjGwlRecipeDetailEO.CHEMICAL_ID, 
-       MjGwlRecipeDetailEO.CHEMICAL_QTY, 
-       MjGwlRecipeDetailEO.TEMPERATURE, 
-       MjGwlRecipeDetailEO.MACHINE_RPM, 
-       MjGwlRecipeDetailEO.REMARKS, 
-       MjGwlRecipeDetailEO.STATUS, 
-       MjGwlRecipeDetailEO.LAST_UPDATE_DATE, 
-       MjGwlRecipeDetailEO.CREATION_DATE, 
-       MjGwlRecipeDetailEO.LAST_UPDATED_BY, 
-       MjGwlRecipeDetailEO.CREATED_BY, 
-       MjGwlRecipeDetailEO.WASH_TYPE, 
-       MjGwlRecipeDetailEO.WATER_AMOUNT, 
-       MjGwlRecipeDetailEO.CHEMICAL_DESC, 
-       MjGwlRecipeDetailEO.CHEMICAL_RATIO"
-  FromList="MJ_GWL_RECIPE_DETAIL MjGwlRecipeDetailEO"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="WashTypeLOV1"
@@ -177,6 +160,27 @@
     <DisplayCriteria
       Hint="showAndExecute"/>
   </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT MjGwlRecipeDetailEO.RECIPE_ID, 
+       MjGwlRecipeDetailEO.LINE_ID, 
+       MjGwlRecipeDetailEO.WASH_TYPE_ID, 
+       MjGwlRecipeDetailEO.CHEMICAL_ID, 
+       MjGwlRecipeDetailEO.CHEMICAL_QTY, 
+       MjGwlRecipeDetailEO.TEMPERATURE, 
+       MjGwlRecipeDetailEO.MACHINE_RPM, 
+       MjGwlRecipeDetailEO.REMARKS, 
+       MjGwlRecipeDetailEO.STATUS, 
+       MjGwlRecipeDetailEO.LAST_UPDATE_DATE, 
+       MjGwlRecipeDetailEO.CREATION_DATE, 
+       MjGwlRecipeDetailEO.LAST_UPDATED_BY, 
+       MjGwlRecipeDetailEO.CREATED_BY, 
+       MjGwlRecipeDetailEO.WASH_TYPE, 
+       MjGwlRecipeDetailEO.WATER_AMOUNT, 
+       MjGwlRecipeDetailEO.CHEMICAL_DESC, 
+       MjGwlRecipeDetailEO.CHEMICAL_RATIO
+FROM MJ_GWL_RECIPE_DETAIL MjGwlRecipeDetailEO
+order by MjGwlRecipeDetailEO.LINE_ID desc]]>
+  </SQLQuery>
   <EntityUsage
     Name="MjGwlRecipeDetailEO"
     Entity="model.entities.MjGwlRecipeDetailEO"/>

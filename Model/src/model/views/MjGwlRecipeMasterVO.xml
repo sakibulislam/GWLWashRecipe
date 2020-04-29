@@ -6,41 +6,13 @@
   Name="MjGwlRecipeMasterVO"
   Version="11.1.1.62.29"
   InheritPersonalization="true"
-  SelectList="MjGwlRecipeMasterEO.RECIPE_ID, 
-       MjGwlRecipeMasterEO.STYLE_ID, 
-       MjGwlRecipeMasterEO.PO, 
-       MjGwlRecipeMasterEO.COUNTRY, 
-       MjGwlRecipeMasterEO.FACTORY, 
-       MjGwlRecipeMasterEO.MACHINE_NO, 
-       MjGwlRecipeMasterEO.OPERATOR_ID, 
-       MjGwlRecipeMasterEO.OPERATOR_SHIFT, 
-       MjGwlRecipeMasterEO.GMT_CATEGORY, 
-       MjGwlRecipeMasterEO.GMT_TYPE, 
-       MjGwlRecipeMasterEO.AVG_WEIGHT, 
-       MjGwlRecipeMasterEO.TOTAL_WEIGHT, 
-       MjGwlRecipeMasterEO.LOT_QTY, 
-       MjGwlRecipeMasterEO.TDATE, 
-       MjGwlRecipeMasterEO.STATUS, 
-       MjGwlRecipeMasterEO.CREATION_DATE, 
-       MjGwlRecipeMasterEO.CREATED_BY, 
-       MjGwlRecipeMasterEO.LAST_UPDATED_BY, 
-       MjGwlRecipeMasterEO.LAST_UPDATE_DATE, 
-       MjGwlRecipeMasterEO.WASH, 
-       MjGwlRecipeMasterEO.STYLE, 
-       MjGwlRecipeMasterEO.RECIPE_DOC_NO, 
-       MjGwlRecipeMasterEO.COLOR, 
-       MjGwlRecipeMasterEO.BUYER_ID, 
-       MjGwlRecipeMasterEO.BUYER, 
-       MjGwlRecipeMasterEO.SEASON, 
-       MjGwlRecipeMasterEO.ORG_ID, 
-       MjGwlRecipeMasterEO.OPERATOR_NAME"
-  FromList="MJ_GWL_RECIPE_MASTER MjGwlRecipeMasterEO"
   BindingStyle="OracleName"
-  CustomQuery="false"
+  CustomQuery="true"
   PageIterMode="Full"
   UseGlueCode="false">
   <DesignTime>
     <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+    <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>
   <ViewAccessor
     Name="BuyerLOV1"
@@ -56,8 +28,22 @@
     RowLevelBinds="true"/>
   <ViewAccessor
     Name="ColorLOV1"
-    ViewObjectName="model.lov.ColorLOV"
-    RowLevelBinds="true"/>
+    ViewObjectName="model.lov.ColorLOV">
+    <ParameterMap>
+      <PIMap Variable="P_Buyer_Id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_STYLE">
+        <TransientExpression><![CDATA[Style]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Season">
+        <TransientExpression><![CDATA[Season]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Wash">
+        <TransientExpression><![CDATA[Wash]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="GMTCategoryLOV1"
     ViewObjectName="model.lov.GMTCategoryLOV"
@@ -84,20 +70,50 @@
     RowLevelBinds="true"/>
   <ViewAccessor
     Name="SeasonLOV1"
-    ViewObjectName="model.lov.SeasonLOV"
-    RowLevelBinds="true"/>
+    ViewObjectName="model.lov.SeasonLOV">
+    <ViewCriteriaUsage
+      Name="SeasonLOVCriteria"
+      FullName="model.lov.SeasonLOV.SeasonLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="P_Buyer_Id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="ShiftLOV1"
     ViewObjectName="model.lov.ShiftLOV"
     RowLevelBinds="true"/>
   <ViewAccessor
     Name="StyleLOV1"
-    ViewObjectName="model.lov.StyleLOV"
-    RowLevelBinds="true"/>
+    ViewObjectName="model.lov.StyleLOV">
+    <ViewCriteriaUsage
+      Name="StyleLOVCriteria"
+      FullName="model.lov.StyleLOV.StyleLOVCriteria"/>
+    <ParameterMap>
+      <PIMap Variable="P_Buyer_Id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Season">
+        <TransientExpression><![CDATA[Season]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="WashLOV1"
-    ViewObjectName="model.lov.WashLOV"
-    RowLevelBinds="true"/>
+    ViewObjectName="model.lov.WashLOV">
+    <ParameterMap>
+      <PIMap Variable="P_Buyer_Id">
+        <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_STYLE">
+        <TransientExpression><![CDATA[Style]]></TransientExpression>
+      </PIMap>
+      <PIMap Variable="P_Season">
+        <TransientExpression><![CDATA[Season]]></TransientExpression>
+      </PIMap>
+    </ParameterMap>
+  </ViewAccessor>
   <ViewAccessor
     Name="WashTypeLOV1"
     ViewObjectName="model.lov.WashTypeLOV"
@@ -304,6 +320,38 @@
     <DisplayCriteria
       Hint="showAndExecute"/>
   </ListBinding>
+  <SQLQuery>
+    <![CDATA[SELECT MjGwlRecipeMasterEO.RECIPE_ID, 
+       MjGwlRecipeMasterEO.STYLE_ID, 
+       MjGwlRecipeMasterEO.PO, 
+       MjGwlRecipeMasterEO.COUNTRY, 
+       MjGwlRecipeMasterEO.FACTORY, 
+       MjGwlRecipeMasterEO.MACHINE_NO, 
+       MjGwlRecipeMasterEO.OPERATOR_ID, 
+       MjGwlRecipeMasterEO.OPERATOR_SHIFT, 
+       MjGwlRecipeMasterEO.GMT_CATEGORY, 
+       MjGwlRecipeMasterEO.GMT_TYPE, 
+       MjGwlRecipeMasterEO.AVG_WEIGHT, 
+       MjGwlRecipeMasterEO.TOTAL_WEIGHT, 
+       MjGwlRecipeMasterEO.LOT_QTY, 
+       MjGwlRecipeMasterEO.TDATE, 
+       MjGwlRecipeMasterEO.STATUS, 
+       MjGwlRecipeMasterEO.CREATION_DATE, 
+       MjGwlRecipeMasterEO.CREATED_BY, 
+       MjGwlRecipeMasterEO.LAST_UPDATED_BY, 
+       MjGwlRecipeMasterEO.LAST_UPDATE_DATE, 
+       MjGwlRecipeMasterEO.WASH, 
+       MjGwlRecipeMasterEO.STYLE, 
+       MjGwlRecipeMasterEO.RECIPE_DOC_NO, 
+       MjGwlRecipeMasterEO.COLOR, 
+       MjGwlRecipeMasterEO.BUYER_ID, 
+       MjGwlRecipeMasterEO.BUYER, 
+       MjGwlRecipeMasterEO.SEASON, 
+       MjGwlRecipeMasterEO.ORG_ID, 
+       MjGwlRecipeMasterEO.OPERATOR_NAME
+FROM MJ_GWL_RECIPE_MASTER MjGwlRecipeMasterEO
+order by MjGwlRecipeMasterEO.RECIPE_ID desc]]>
+  </SQLQuery>
   <EntityUsage
     Name="MjGwlRecipeMasterEO"
     Entity="model.entities.MjGwlRecipeMasterEO"/>
