@@ -57,11 +57,10 @@
                                           value="#{bindings.Style.inputValue}"
                                           label="Style:"
                                           model="#{bindings.Style.listOfValuesModel}"
-                                          required="#{bindings.Style.hints.mandatory}"
                                           columns="#{bindings.Style.hints.displayWidth}"
                                           shortDesc="#{bindings.Style.hints.tooltip}"
                                           contentStyle="width:150px;"
-                                          autoSubmit="true">
+                                          autoSubmit="true" required="true">
               <f:validator binding="#{bindings.Style.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.Style.suggestedItems}"/>
             </af:inputComboboxListOfValues>
@@ -70,11 +69,10 @@
                                           value="#{bindings.Wash.inputValue}"
                                           label="Wash:"
                                           model="#{bindings.Wash.listOfValuesModel}"
-                                          required="#{bindings.Wash.hints.mandatory}"
                                           columns="#{bindings.Wash.hints.displayWidth}"
                                           shortDesc="#{bindings.Wash.hints.tooltip}"
                                           contentStyle="width:150px;"
-                                          autoSubmit="true">
+                                          autoSubmit="true" required="true">
               <f:validator binding="#{bindings.Wash.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.Wash.suggestedItems}"/>
             </af:inputComboboxListOfValues>
@@ -83,20 +81,19 @@
                                           value="#{bindings.Color.inputValue}"
                                           label="Color:"
                                           model="#{bindings.Color.listOfValuesModel}"
-                                          required="#{bindings.Color.hints.mandatory}"
                                           columns="#{bindings.Color.hints.displayWidth}"
                                           shortDesc="#{bindings.Color.hints.tooltip}"
-                                          contentStyle="width:150px;">
+                                          contentStyle="width:150px;"
+                                          required="true">
               <f:validator binding="#{bindings.Color.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.Color.suggestedItems}"/>
             </af:inputComboboxListOfValues>
             <af:inputText value="#{bindings.Po.inputValue}"
-                          label="PO/Lot:"
-                          required="#{bindings.Po.hints.mandatory}"
+                          label="PO/ Lot:"
                           columns="#{bindings.Po.hints.displayWidth}"
                           maximumLength="#{bindings.Po.hints.precision}"
                           shortDesc="#{bindings.Po.hints.tooltip}" id="it7"
-                          contentStyle="width:150px;">
+                          contentStyle="width:150px;" required="true">
               <f:validator binding="#{bindings.Po.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.Country.inputValue}"
@@ -120,6 +117,18 @@
               <f:validator binding="#{bindings.Factory.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.Factory.suggestedItems}"/>
             </af:inputComboboxListOfValues>
+            <af:inputComboboxListOfValues id="operatorNameId"
+                                          popupTitle="Search and Select: #{bindings.OperatorName.hints.label}"
+                                          value="#{bindings.OperatorName.inputValue}"
+                                          label="Operator Name:"
+                                          model="#{bindings.OperatorName.listOfValuesModel}"
+                                          required="#{bindings.OperatorName.hints.mandatory}"
+                                          columns="#{bindings.OperatorName.hints.displayWidth}"
+                                          shortDesc="#{bindings.OperatorName.hints.tooltip}"
+                                          contentStyle="width:150px;">
+              <f:validator binding="#{bindings.OperatorName.validator}"/>
+              <af:autoSuggestBehavior suggestedItems="#{bindings.OperatorName.suggestedItems}"/>
+            </af:inputComboboxListOfValues>
             <af:inputComboboxListOfValues id="machineNoId"
                                           popupTitle="Search and Select: #{bindings.MachineNo.hints.label}"
                                           value="#{bindings.MachineNo.inputValue}"
@@ -132,16 +141,6 @@
               <f:validator binding="#{bindings.MachineNo.validator}"/>
               <af:autoSuggestBehavior suggestedItems="#{bindings.MachineNo.suggestedItems}"/>
             </af:inputComboboxListOfValues>
-            <af:inputText value="#{bindings.OperatorName.inputValue}"
-                          required="#{bindings.OperatorName.hints.mandatory}"
-                          columns="#{bindings.OperatorName.hints.displayWidth}"
-                          maximumLength="#{bindings.OperatorName.hints.precision}"
-                          shortDesc="#{bindings.OperatorName.hints.tooltip}"
-                          id="it15" label="Operator Name LOV:"
-                          inlineStyle="background-color:Silver;"
-                          contentStyle="width:150px;">
-              <f:validator binding="#{bindings.OperatorName.validator}"/>
-            </af:inputText>
             <af:inputComboboxListOfValues id="operatorShiftId"
                                           popupTitle="Search and Select: #{bindings.OperatorShift.hints.label}"
                                           value="#{bindings.OperatorShift.inputValue}"
@@ -254,7 +253,8 @@
                           columns="#{bindings.Status.hints.displayWidth}"
                           maximumLength="#{bindings.Status.hints.precision}"
                           shortDesc="#{bindings.Status.hints.tooltip}"
-                          id="it12" inlineStyle="background-color:Silver;">
+                          id="it12" inlineStyle="background-color:Silver;"
+                          rendered="false">
               <f:validator binding="#{bindings.Status.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.Status.format}"/>
@@ -325,7 +325,7 @@
                           columns="#{bindings.OperatorId.hints.displayWidth}"
                           maximumLength="#{bindings.OperatorId.hints.precision}"
                           shortDesc="#{bindings.OperatorId.hints.tooltip}"
-                          id="it8">
+                          id="it8" rendered="false">
               <f:validator binding="#{bindings.OperatorId.validator}"/>
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.OperatorId.format}"/>
@@ -490,7 +490,8 @@
                                 readOnly="true" binding="#{MainBean.chemRatio}">
                     <f:validator binding="#{row.bindings.ChemicalRatio.validator}"/>
                     <af:convertNumber groupingUsed="false"
-                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.format}"/>
+                                      pattern="#{bindings.MjGwlRecipeDetailVO1.hints.ChemicalRatio.format}"
+                                      maxFractionDigits="4"/>
                   </af:inputText>
                 </af:column>
                 <af:column sortProperty="Temperature" filterable="true"

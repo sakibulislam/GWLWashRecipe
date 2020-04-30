@@ -43,7 +43,7 @@
   </Attribute>
   <Attribute
     Name="Po"
-    Precision="10"
+    Precision="150"
     ColumnName="PO"
     SQLType="VARCHAR"
     Type="java.lang.String"
@@ -186,7 +186,8 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="MJ_GWL_RECIPE_MASTER">
+    TableName="MJ_GWL_RECIPE_MASTER"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>

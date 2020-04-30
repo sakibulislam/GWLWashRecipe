@@ -438,7 +438,7 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
      * @param value value to set the Po
      */
     public void setPo(String value) {
-        setAttributeInternal(PO, value);
+        setAttributeInternal(PO, value.trim());
     }
 
     /**
@@ -454,7 +454,7 @@ public class MjGwlRecipeMasterEOImpl extends EntityImpl {
      * @param value value to set the Country
      */
     public void setCountry(String value) {
-        setAttributeInternal(COUNTRY, value);
+        setAttributeInternal(COUNTRY, value.trim());
     }
 
     /**

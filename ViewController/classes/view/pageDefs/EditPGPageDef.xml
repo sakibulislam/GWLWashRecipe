@@ -148,11 +148,7 @@
         <Item Value="OrgId"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="MjGwlRecipeMasterVO1Iterator"
-                     id="OperatorName">
-      <AttrNames>
-        <Item Value="OperatorName"/>
-      </AttrNames>
-    </attributeValues>
+    <listOfValues StaticList="false" IterBinding="MjGwlRecipeMasterVO1Iterator"
+                  Uses="LOV_OperatorName" id="OperatorName"/>
   </bindings>
 </pageDefinition>

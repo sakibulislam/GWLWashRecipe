@@ -114,7 +114,8 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="MJ_GWL_RECIPE_DETAIL">
+    TableName="MJ_GWL_RECIPE_DETAIL"
+    DefaultValue="1">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="39"/>
     </DesignTime>

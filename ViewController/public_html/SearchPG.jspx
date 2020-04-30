@@ -97,7 +97,7 @@
                              id="c3" align="center">
                     <af:outputText value="#{row.Color}" id="ot8"/>
                   </af:column>
-                  <af:column headerText="PO/Lot"
+                  <af:column headerText="PO/ Lot"
                              id="c5" align="center" sortable="true"
                              filterable="true" sortProperty="Po">
                     <af:outputText value="#{row.Po}" id="ot4"/>

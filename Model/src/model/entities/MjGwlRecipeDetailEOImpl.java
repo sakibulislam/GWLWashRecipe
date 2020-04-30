@@ -1,5 +1,11 @@
 package model.entities;
 
+import java.sql.SQLException;
+
+import java.util.Map;
+
+import oracle.adf.share.ADFContext;
+
 import oracle.jbo.AttributeList;
 import oracle.jbo.Key;
 import oracle.jbo.domain.Date;
@@ -637,12 +643,31 @@ public class MjGwlRecipeDetailEOImpl extends EntityImpl {
          }
      }
 
-    /**
-     * Custom DML update/insert/delete logic here.
-     * @param operation the operation type
-     * @param e the transaction event
-     */
-    protected void doDML(int operation, TransactionEvent e) {
-        super.doDML(operation, e);
-    }
+     /**
+      * Custom DML update/insert/delete logic here.
+      * @param operation the operation type
+      * @param e the transaction event
+      */
+     protected void doDML(int operation, TransactionEvent e){
+         System.out.println("Enter in doDML....");
+         Map sessionScope = ADFContext.getCurrent().getSessionScope();
+         String user = (String)sessionScope.get("userId");
+
+         if (operation == DML_INSERT) {
+             try {
+                 setCreationDate((Date)Date.getCurrentDate());
+                 setCreatedBy(new oracle.jbo.domain.Number(user));
+             } catch (SQLException f) {
+                 System.out.println(f.getMessage());
+             }
+         } else if (DML_UPDATE == operation) {
+             try {
+                 setLastUpdateDate((Date)Date.getCurrentDate());
+                 setLastUpdatedBy(new oracle.jbo.domain.Number(user));
+             } catch (SQLException f) {
+                 System.out.println(f.getMessage());
+             }
+         }
+         super.doDML(operation, e);
+     }
 }

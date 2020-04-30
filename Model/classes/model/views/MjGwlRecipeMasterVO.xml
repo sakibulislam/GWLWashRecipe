@@ -17,7 +17,11 @@
   <ViewAccessor
     Name="BuyerLOV1"
     ViewObjectName="model.lov.BuyerLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="BuyerLOVCriteria"
+      FullName="model.lov.BuyerLOV.BuyerLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="ChemicalAmountLOV1"
     ViewObjectName="model.lov.ChemicalAmountLOV"
@@ -29,6 +33,9 @@
   <ViewAccessor
     Name="ColorLOV1"
     ViewObjectName="model.lov.ColorLOV">
+    <ViewCriteriaUsage
+      Name="ColorLOVCriteria"
+      FullName="model.lov.ColorLOV.ColorLOVCriteria"/>
     <ParameterMap>
       <PIMap Variable="P_Buyer_Id">
         <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
@@ -47,15 +54,27 @@
   <ViewAccessor
     Name="GMTCategoryLOV1"
     ViewObjectName="model.lov.GMTCategoryLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GMTCategoryLOVCriteria"
+      FullName="model.lov.GMTCategoryLOV.GMTCategoryLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="GMTTypeLOV1"
     ViewObjectName="model.lov.GMTTypeLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="GMTTypeLOVCriteria"
+      FullName="model.lov.GMTTypeLOV.GMTTypeLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="MachineNoLOV1"
     ViewObjectName="model.lov.MachineNoLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="MachineNoLOVCriteria"
+      FullName="model.lov.MachineNoLOV.MachineNoLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="MachineRPMLOV1"
     ViewObjectName="model.lov.MachineRPMLOV"
@@ -63,7 +82,11 @@
   <ViewAccessor
     Name="OrgLOV1"
     ViewObjectName="model.lov.OrgLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="OrgLOVCriteria"
+      FullName="model.lov.OrgLOV.OrgLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="RecipeTempLOV1"
     ViewObjectName="model.lov.RecipeTempLOV"
@@ -83,7 +106,11 @@
   <ViewAccessor
     Name="ShiftLOV1"
     ViewObjectName="model.lov.ShiftLOV"
-    RowLevelBinds="true"/>
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="ShiftLOVCriteria"
+      FullName="model.lov.ShiftLOV.ShiftLOVCriteria"/>
+  </ViewAccessor>
   <ViewAccessor
     Name="StyleLOV1"
     ViewObjectName="model.lov.StyleLOV">
@@ -102,6 +129,9 @@
   <ViewAccessor
     Name="WashLOV1"
     ViewObjectName="model.lov.WashLOV">
+    <ViewCriteriaUsage
+      Name="WashLOVCriteria"
+      FullName="model.lov.WashLOV.WashLOVCriteria"/>
     <ParameterMap>
       <PIMap Variable="P_Buyer_Id">
         <TransientExpression><![CDATA[BuyerId]]></TransientExpression>
@@ -122,10 +152,18 @@
     Name="WaterAmountLOV1"
     ViewObjectName="model.lov.WaterAmountLOV"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OperatorDetailsLOV1"
+    ViewObjectName="model.lov.OperatorDetailsLOV"
+    RowLevelBinds="true">
+    <ViewCriteriaUsage
+      Name="OperatorDetailsLOVCriteria"
+      FullName="model.lov.OperatorDetailsLOV.OperatorDetailsLOVCriteria"/>
+  </ViewAccessor>
   <ListBinding
     Name="LOV_Buyer"
     ListVOName="BuyerLOV1"
-    ListRangeSize="10"
+    ListRangeSize="25"
     NullValueFlag="none"
     NullValueId="LOV_Buyer_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -143,12 +181,13 @@
       <Item Value="CustomerName"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="BuyerLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Season"
     ListVOName="SeasonLOV1"
-    ListRangeSize="10"
+    ListRangeSize="100"
     NullValueFlag="none"
     NullValueId="LOV_Season_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -162,12 +201,16 @@
       <Item Value="Season"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="SeasonLOVCriteria"/>
+    <ViewCriteriaUsage
+      Name="SeasonLOVCriteria"
+      FullName="model.lov.SeasonLOV.SeasonLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Style"
     ListVOName="StyleLOV1"
-    ListRangeSize="10"
+    ListRangeSize="50"
     NullValueFlag="none"
     NullValueId="LOV_Style_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -181,12 +224,16 @@
       <Item Value="Style"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="StyleLOVCriteria"/>
+    <ViewCriteriaUsage
+      Name="StyleLOVCriteria"
+      FullName="model.lov.StyleLOV.StyleLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Color"
     ListVOName="ColorLOV1"
-    ListRangeSize="10"
+    ListRangeSize="25"
     NullValueFlag="none"
     NullValueId="LOV_Color_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -200,12 +247,16 @@
       <Item Value="FinishGoodsColor"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="ColorLOVCriteria"/>
+    <ViewCriteriaUsage
+      Name="ColorLOVCriteria"
+      FullName="model.lov.ColorLOV.ColorLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Wash"
     ListVOName="WashLOV1"
-    ListRangeSize="10"
+    ListRangeSize="50"
     NullValueFlag="none"
     NullValueId="LOV_Wash_LOVUIHints_NullValueId"
     MRUCount="0">
@@ -219,14 +270,18 @@
       <Item Value="Wash"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="WashLOVCriteria"/>
+    <ViewCriteriaUsage
+      Name="WashLOVCriteria"
+      FullName="model.lov.WashLOV.WashLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_Factory"
     ListVOName="OrgLOV1"
     ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_Factory_LOVUIHints_NullValueId"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="Factory"/>
@@ -242,14 +297,15 @@
       <Item Value="OrganizationCode"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="OrgLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_MachineNo"
     ListVOName="MachineNoLOV1"
-    ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_MachineNo_LOVUIHints_NullValueId"
+    ListRangeSize="50"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="MachineNo"/>
@@ -261,14 +317,15 @@
       <Item Value="MachineNo"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="MachineNoLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_OperatorShift"
     ListVOName="ShiftLOV1"
     ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_OperatorShift_LOVUIHints_NullValueId"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="OperatorShift"/>
@@ -280,14 +337,15 @@
       <Item Value="Shift"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="ShiftLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_GmtCategory"
     ListVOName="GMTCategoryLOV1"
-    ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_GmtCategory_LOVUIHints_NullValueId"
+    ListRangeSize="50"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="GmtCategory"/>
@@ -299,14 +357,15 @@
       <Item Value="GmtCategory"/>
     </AttrArray>
     <DisplayCriteria
-      Hint="showAndExecute"/>
+      Hint="showAndExecute"
+      Name="GMTCategoryLOVCriteria"/>
   </ListBinding>
   <ListBinding
     Name="LOV_GmtType"
     ListVOName="GMTTypeLOV1"
-    ListRangeSize="10"
-    NullValueFlag="none"
-    NullValueId="LOV_GmtType_LOVUIHints_NullValueId"
+    ListRangeSize="50"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
     MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="GmtType"/>
@@ -318,6 +377,31 @@
       <Item Value="GmtType"/>
     </AttrArray>
     <DisplayCriteria
+      Hint="showAndExecute"
+      Name="GMTTypeLOVCriteria"/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OperatorName"
+    ListVOName="OperatorDetailsLOV1"
+    ListRangeSize="50"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OperatorName"/>
+    </AttrArray>
+    <AttrArray Name="DerivedAttrNames">
+      <Item Value="OperatorId"/>
+    </AttrArray>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="EmpName"/>
+      <Item Value="EmpNo"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="EmpName"/>
+    </AttrArray>
+    <DisplayCriteria
+      Name="OperatorDetailsLOVCriteria"
       Hint="showAndExecute"/>
   </ListBinding>
   <SQLQuery>
@@ -485,7 +569,8 @@ order by MjGwlRecipeMasterEO.RECIPE_ID desc]]>
     PrecisionRule="true"
     EntityAttrName="Status"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="STATUS"/>
+    AliasName="STATUS"
+    DefaultValue="1"/>
   <ViewAttribute
     Name="CreationDate"
     PrecisionRule="true"
@@ -603,7 +688,15 @@ order by MjGwlRecipeMasterEO.RECIPE_ID desc]]>
     PrecisionRule="true"
     EntityAttrName="OperatorName"
     EntityUsage="MjGwlRecipeMasterEO"
-    AliasName="OPERATOR_NAME"/>
+    AliasName="OPERATOR_NAME"
+    LOVName="LOV_OperatorName">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo_lov"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="MjGwlRecipeDetailVO"
     ViewLink="model.views.MjGwlRecipeDetailR01Link"
